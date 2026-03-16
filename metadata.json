@@ -1,0 +1,5 @@
+{
+  "name": "Daily Grind Blankenberge",
+  "description": "High-end functional PWA for Daily Grind Skateshop in Blankenberge. Your local source for skateboards, streetwear, and sneakers.",
+  "requestFramePermissions": ["geolocation"]
+}
