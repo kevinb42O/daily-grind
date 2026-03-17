@@ -5,7 +5,7 @@ import Brands from './components/Brands';
 import Contact from './components/Contact';
 import ProductGrid from './components/ProductGrid';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
-import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
+import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, ArrowUpRight, ExternalLink } from 'lucide-react';
 
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import CategoryPage from './components/CategoryPage';
@@ -226,6 +226,20 @@ export default function App() {
                     <p className="text-bg/85 text-xs">Ma - Za: 10:00 - 18:00</p>
                     <p className="text-bg/85 text-xs">Zondag: 11:00 - 17:00</p>
                   </li>
+                  <li className="pt-4 flex gap-4 font-display text-[10px] font-bold uppercase tracking-widest text-bg/40">
+                    <button 
+                      onClick={() => openLegalModal('tos')} 
+                      className="hover:text-accent transition-colors cursor-pointer"
+                    >
+                      Terms
+                    </button>
+                    <button 
+                      onClick={() => openLegalModal('privacy')} 
+                      className="hover:text-accent transition-colors cursor-pointer"
+                    >
+                      Privacy
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -234,20 +248,19 @@ export default function App() {
               <div className="text-[10px] uppercase tracking-[0.3em] text-bg/60">
                 © 2026 Daily Grind Blankenberge. All Rights Reserved.
               </div>
-              <div className="flex gap-8 font-display text-[10px] font-bold uppercase tracking-widest text-bg/60">
-                <button 
-                  onClick={() => openLegalModal('tos')} 
-                  className="hover:text-accent transition-colors uppercase"
-                >
-                  Terms of Service
-                </button>
-                <button 
-                  onClick={() => openLegalModal('privacy')} 
-                  className="hover:text-accent transition-colors uppercase"
-                >
-                  Privacy Policy
-                </button>
-              </div>
+
+              <a 
+                href="https://www.webaanzee.be" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 group no-underline"
+              >
+                <span className="text-[7.5px] uppercase tracking-[0.05em] text-bg/30 pt-0.5">designed by</span>
+                <span className="text-[11px] font-display font-bold tracking-tight text-bg/80 group-hover:text-bg transition-colors">
+                  Web<span className="text-[#FFB800]">aan</span>Zee.be
+                </span>
+                <ExternalLink size={9} className="text-bg/30 group-hover:text-bg/50 transition-colors" />
+              </a>
             </div>
           </div>
         </footer>
