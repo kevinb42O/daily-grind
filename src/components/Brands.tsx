@@ -14,7 +14,7 @@ export default function Brands() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div>
             <h2 className="text-6xl md:text-8xl font-black mb-4 text-fg">Brands</h2>
-            <p className="font-display text-lg tracking-widest uppercase text-fg/40">Curated Selection</p>
+            <p className="font-display text-lg tracking-widest uppercase text-fg/40">Brands in onze Shop</p>
           </div>
           <div className="hidden md:block w-1/3 h-[1px] bg-fg/10 mb-6" />
         </div>

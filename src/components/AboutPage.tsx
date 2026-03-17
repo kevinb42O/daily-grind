@@ -20,7 +20,7 @@ export default function AboutPage() {
             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8">The Grind Is Real.</h1>
             <div className="space-y-6 text-lg text-fg/70 leading-relaxed">
               <p className="text-xl text-fg font-medium">
-                Daily Grind Skateshop is al sinds 2004 een onmisbaar baken in de Kerkstraat van Blankenberge. Wat begon als een pure passie voor skateboarden, is onder leiding van Dré en Ira uitgegroeid tot een van de meest gerespecteerde core skateshops aan de Belgische kust.
+                Daily Grind Skateshop is al sinds begin 2015 een onmisbaar baken in de Kerkstraat van Blankenberge. Wat begon als een pure passie voor skateboarden, is onder leiding van Dré en Ira uitgegroeid tot een van de meest gerespecteerde core skateshops aan de Belgische kust.
               </p>
               <p>
                 Bij Daily Grind draait alles om authenticiteit. De eigenaren brengen hun liefde voor de straatcultuur samen in de shop. Dit zie je terug in de zorgvuldig samengestelde collectie hardware, footwear en apparel.
@@ -44,7 +44,7 @@ export default function AboutPage() {
               referrerPolicy="no-referrer"
             />
             <div className="absolute -bottom-8 -left-8 bg-accent text-bg p-8 font-display font-black uppercase text-2xl leading-tight max-w-[240px]">
-              Support Your Local Since 2004.
+              Support Your Local Since 2015.
             </div>
           </motion.div>
         </div>

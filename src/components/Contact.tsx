@@ -11,8 +11,8 @@ export default function Contact() {
             
             <div className="space-y-8">
               <div className="flex gap-6">
-                <div className="w-12 h-12 bg-accent/5 flex items-center justify-center text-accent shrink-0 border border-accent/10">
-                  <MapPin size={24} />
+                <div className="text-accent shrink-0 pt-1">
+                  <MapPin size={24} strokeWidth={2.5} />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl uppercase mb-2 text-fg">Address</h3>
@@ -21,8 +21,8 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-6">
-                <div className="w-12 h-12 bg-accent/5 flex items-center justify-center text-accent shrink-0 border border-accent/10">
-                  <Clock size={24} />
+                <div className="text-accent shrink-0 pt-1">
+                  <Clock size={24} strokeWidth={2.5} />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl uppercase mb-2 text-fg">Opening Hours</h3>
@@ -34,8 +34,8 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-6">
-                <div className="w-12 h-12 bg-accent/5 flex items-center justify-center text-accent shrink-0 border border-accent/10">
-                  <Phone size={24} />
+                <div className="text-accent shrink-0 pt-1">
+                  <Phone size={24} strokeWidth={2.5} />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl uppercase mb-2 text-fg">Contact</h3>
@@ -45,30 +45,30 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-12 flex gap-4">
+            <div className="mt-12 flex gap-6">
               <a 
                 href="https://www.instagram.com/dailygrindskateshop/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-12 h-12 border border-fg/10 flex items-center justify-center hover:bg-accent hover:text-bg transition-all text-fg hover:border-accent"
+                className="text-fg hover:text-accent transition-all group"
               >
-                <Instagram size={20} />
+                <Instagram size={24} className="group-hover:scale-110 transition-transform" />
               </a>
               <a 
                 href="https://www.facebook.com/profile.php?id=100052786183670&locale=nl_NL#" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-12 h-12 border border-fg/10 flex items-center justify-center hover:bg-accent hover:text-bg transition-all text-fg hover:border-accent"
+                className="text-fg hover:text-accent transition-all group"
               >
-                <Facebook size={20} />
+                <Facebook size={24} className="group-hover:scale-110 transition-transform" />
               </a>
               <a 
                 href="https://www.youtube.com/@dailygrindskateshop2446" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-12 h-12 border border-fg/10 flex items-center justify-center hover:bg-accent hover:text-bg transition-all text-fg hover:border-accent"
+                className="text-fg hover:text-accent transition-all group"
               >
-                <Youtube size={20} />
+                <Youtube size={24} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>

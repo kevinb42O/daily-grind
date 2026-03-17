@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 const banners = [
   {
@@ -18,6 +18,8 @@ const banners = [
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 150]); // Adjusted for individual image shifts
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -29,27 +31,38 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-surface">
       {/* Background Carousel */}
-      <div className="absolute inset-0 z-0 flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${current * 100}%)` }}>
-        {banners.map((banner, index) => (
-          <div key={banner.id} className="min-w-full h-full relative">
-            <img 
+      <motion.div 
+        className="absolute inset-0 z-0 flex" 
+        animate={{ x: `-${current * 100}%` }}
+        transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+      >
+        {banners.map((banner) => (
+          <div key={banner.id} className="min-w-full h-full relative overflow-hidden">
+            <motion.img 
               src={banner.image} 
               alt="Daily Grind Hero" 
-              className="w-full h-full object-cover"
+              className="w-full h-[120%] object-cover absolute top-0 left-0"
+              style={{ 
+                top: '-10%',
+                y: y1 
+              }}
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
           </div>
         ))}
-      </div>
+      </motion.div>
 
       <div className="relative z-10 text-center px-6">
         <div>
-          <img 
-            src="/images/site/DAILY.png" 
-            alt="Daily Grind Skateshop" 
-            className="w-[60vw] max-w-[700px] mb-8 drop-shadow-2xl"
-          />
+          <div className="griptape-overlay inline-block">
+            <img 
+              src="/images/site/logo_daily_hero2.png" 
+              alt="Daily Grind Skateshop" 
+              className="w-[60vw] max-w-[700px] mb-8"
+              style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.6))' }}
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
@@ -82,7 +95,7 @@ export default function Hero() {
       <div className="absolute bottom-10 left-10 hidden lg:block z-20">
         <div className="flex flex-col gap-2">
           <div className="w-12 h-[1px] bg-accent" />
-          <span className="text-[10px] uppercase tracking-widest text-white/50">Est. 2004</span>
+          <span className="text-[10px] uppercase tracking-widest text-white/50">Est. 2015</span>
         </div>
       </div>
     </section>
