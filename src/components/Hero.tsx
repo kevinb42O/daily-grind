@@ -46,7 +46,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-6">
         <div>
           <img 
-            src="/images/site/dailygrindlogoV3.png" 
+            src="/images/site/DAILY.png" 
             alt="Daily Grind Skateshop" 
             className="w-[60vw] max-w-[700px] mb-8 drop-shadow-2xl"
           />

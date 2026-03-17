@@ -11,9 +11,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-4">
           <img 
-            src="/images/site/daily_grind_clean.png" 
+            src="/images/site/dailyheader.png" 
             alt="Daily Grind Logo" 
-            className="h-10 w-auto invert"
+            className="h-10 w-auto"
           />
         </Link>
 
