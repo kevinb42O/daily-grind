@@ -140,9 +140,9 @@ export default function App() {
               <div className="lg:col-span-2">
                 <Link to="/" className="mb-4 block -ml-4">
                   <img 
-                    src="/images/site/dailygrindlogo.png" 
+                    src="/images/site/daily_grind_clean.png" 
                     alt="Daily Grind Logo" 
-                    className="w-64 md:w-80 h-auto invert"
+                    className="w-64 md:w-80 h-auto"
                     referrerPolicy="no-referrer"
                   />
                 </Link>

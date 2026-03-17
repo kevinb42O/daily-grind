@@ -49,7 +49,7 @@ const products = [
 
 export default function ProductGrid() {
   return (
-    <section className="py-24 bg-bg">
+    <section id="products" className="py-24 bg-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-end mb-12">
           <div>

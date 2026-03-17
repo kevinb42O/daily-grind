@@ -46,15 +46,21 @@ export default function Hero() {
       <div className="relative z-10 text-center px-6">
         <div>
           <img 
-            src="/images/site/dailygrindlogo.png" 
+            src="/images/site/dailygrindlogoV3.png" 
             alt="Daily Grind Skateshop" 
-            className="w-[60vw] max-w-[700px] invert mb-8 drop-shadow-2xl"
+            className="w-[60vw] max-w-[700px] mb-8 drop-shadow-2xl"
           />
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-accent text-white font-display font-bold px-8 py-4 uppercase tracking-widest hover:bg-white hover:text-accent transition-all">
+            <button 
+              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-accent text-white font-display font-bold px-8 py-4 uppercase tracking-widest hover:bg-white hover:text-accent transition-all"
+            >
               Bekijk Collectie
             </button>
-            <button className="border border-white text-white font-display font-bold px-8 py-4 uppercase tracking-widest hover:bg-white hover:text-bg transition-all">
+            <button 
+              onClick={() => document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' })}
+              className="border border-white text-white font-display font-bold px-8 py-4 uppercase tracking-widest hover:bg-white hover:text-accent transition-all"
+            >
               Onze Riders
             </button>
           </div>

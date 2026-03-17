@@ -10,10 +10,11 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-bg/80 backdrop-blur-md border-b border-fg/5">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-4">
-          <span className="font-display text-xl md:text-2xl font-black uppercase tracking-tighter text-fg">
-            Daily Grind
-          </span>
-          <span className="hidden sm:block text-[10px] border border-accent text-accent px-1 rounded uppercase font-bold">Blankenberge</span>
+          <img 
+            src="/images/site/daily_grind_clean.png" 
+            alt="Daily Grind Logo" 
+            className="h-10 w-auto invert"
+          />
         </Link>
 
         {/* Desktop Menu */}
