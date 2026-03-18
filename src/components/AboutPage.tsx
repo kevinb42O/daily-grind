@@ -20,13 +20,13 @@ export default function AboutPage() {
             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8">The Grind Is Real.</h1>
             <div className="space-y-6 text-lg text-fg/70 leading-relaxed">
               <p className="text-xl text-fg font-medium">
-                Daily Grind Skateshop is al sinds begin 2015 een onmisbaar baken in de Kerkstraat van Blankenberge. Wat begon als een pure passie voor skateboarden, is onder leiding van Dré en Ira uitgegroeid tot een van de meest gerespecteerde core skateshops aan de Belgische kust.
+                Daily Grind Skateshop is al sinds begin 2015 een onmisbaar baken in de Langestraat van Blankenberge. Wat begon als een pure passie voor skateboarden, is onder leiding van Dré en Ira uitgegroeid tot een van de meest gerespecteerde core skateshops aan de Belgische kust.
               </p>
               <p>
                 Bij Daily Grind draait alles om authenticiteit. De eigenaren brengen hun liefde voor de straatcultuur samen in de shop. Dit zie je terug in de zorgvuldig samengestelde collectie hardware, footwear en apparel.
               </p>
               <p>
-                Of je nu op zoek bent naar de nieuwste Nike SB drops, core brands zoals Polar Skate Co., Magenta of Palace, of gewoon een praatje wilt maken over de lokale scene: de deur staat altijd open. We zijn meer dan een winkel; we zijn een community hub waar de passie voor het board centraal staat. No bullshit, just skateboarding.
+                Of je nu op zoek bent naar de nieuwste Helas drops, core brands zoals Polar Skate Co., Magenta of Huf, of gewoon een praatje wilt maken over de lokale scene: de deur staat altijd open. We zijn meer dan een winkel; we zijn een community hub waar de passie voor het board centraal staat. No bullshit, just skateboarding.
               </p>
             </div>
           </motion.div>
@@ -53,17 +53,24 @@ export default function AboutPage() {
           <div className="p-8 bg-surface border border-fg/5">
             <MapPin className="text-accent mb-6" size={32} />
             <h3 className="font-display font-black uppercase text-xl mb-4">Locatie</h3>
-            <p className="text-fg/60">Kerkstraat 61,<br />8370 Blankenberge</p>
+            <p className="text-fg/60">Langestraat 1,<br />8370 Blankenberge</p>
           </div>
           <div className="p-8 bg-surface border border-fg/5">
             <Clock className="text-accent mb-6" size={32} />
             <h3 className="font-display font-black uppercase text-xl mb-4">Openingsuren</h3>
-            <p className="text-fg/60">Ma - Za: 10:00 - 18:00<br />Zondag: 11:00 - 17:00</p>
+            <div className="text-fg/60 space-y-1">
+              <p>Ma, Wo - Za: 10:00 - 18:00</p>
+              <p className="font-bold text-accent">Dinsdag: Gesloten</p>
+              <p>Zondag: 12:00 - 18:00</p>
+              <p className="mt-4 text-xs italic opacity-70 border-t border-fg/10 pt-2">
+                Feest- en schoolvakanties elke dag open van 10-18u (zondag 12-18u)
+              </p>
+            </div>
           </div>
           <div className="p-8 bg-surface border border-fg/5">
             <Mail className="text-accent mb-6" size={32} />
             <h3 className="font-display font-black uppercase text-xl mb-4">Contact</h3>
-            <p className="text-fg/60">info@dailygrind.be<br />+32 50 42 31 11</p>
+            <p className="text-fg/60">info@dailygrind.be<br />050/73 15 66</p>
           </div>
         </div>
 
@@ -71,7 +78,7 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-6xl font-black uppercase mb-12">Kom langs in de shop.</h2>
           <div className="flex flex-wrap justify-center gap-4">
             <a 
-              href="https://www.google.com/maps/dir/?api=1&destination=Kerkstraat+61+Blankenberge" 
+              href="https://www.google.com/maps/dir/?api=1&destination=Langestraat+1+Blankenberge" 
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-fg text-bg px-10 py-5 font-display font-bold uppercase tracking-widest hover:bg-accent transition-all"

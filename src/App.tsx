@@ -159,7 +159,7 @@ export default function App() {
                   />
                 </Link>
                 <p className="text-bg/85 text-lg max-w-md mb-8">
-                  Daily Grind Skateshop is sinds begin 2015 een core skateshop in de Kerkstraat van Blankenberge, gebouwd op passie voor authentic skate culture door Dré en Ira.
+                  Daily Grind Skateshop is sinds begin 2015 een core skateshop in de Langestraat van Blankenberge, gebouwd op passie voor authentic skate culture door Dré en Ira.
                 </p>
                 <div className="flex gap-6">
                   <motion.a 
@@ -211,11 +211,11 @@ export default function App() {
                 <ul className="space-y-4 text-sm">
                   <li className="flex gap-3">
                     <MapPin size={16} className="text-accent shrink-0" strokeWidth={2.5} />
-                    <span className="text-bg/85">Kerkstraat 61, Blankenberge</span>
+                    <span className="text-bg/85">Langestraat 1, Blankenberge</span>
                   </li>
                   <li className="flex gap-3">
                     <Phone size={16} className="text-accent shrink-0" strokeWidth={2.5} />
-                    <span className="text-bg/85">+32 50 42 31 11</span>
+                    <span className="text-bg/85">050/73 15 66</span>
                   </li>
                   <li className="flex gap-3">
                     <Mail size={16} className="text-accent shrink-0" strokeWidth={2.5} />
@@ -223,8 +223,9 @@ export default function App() {
                   </li>
                   <li className="pt-4 border-t border-bg/10">
                     <p className="font-display font-bold uppercase tracking-widest text-[10px] mb-2 text-accent">Openingsuren</p>
-                    <p className="text-bg/85 text-xs">Ma - Za: 10:00 - 18:00</p>
-                    <p className="text-bg/85 text-xs">Zondag: 11:00 - 17:00</p>
+                    <p className="text-bg/85 text-xs">Ma, Wo-Za: 10:00 - 18:00</p>
+                    <p className="text-bg/85 text-xs font-bold text-accent">Dinsdag: Gesloten</p>
+                    <p className="text-bg/85 text-xs">Zondag: 12:00 - 18:00</p>
                   </li>
                   <li className="pt-4 flex gap-4 font-display text-[10px] font-bold uppercase tracking-widest text-bg/40">
                     <button 

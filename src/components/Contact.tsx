@@ -16,7 +16,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl uppercase mb-2 text-fg">Address</h3>
-                  <p className="text-fg/60">Kerkstraat 61<br />8370 Blankenberge, Belgium</p>
+                  <p className="text-fg/60">Langestraat 1<br />8370 Blankenberge, Belgium</p>
                 </div>
               </div>
 
@@ -27,8 +27,12 @@ export default function Contact() {
                 <div>
                   <h3 className="font-display font-bold text-xl uppercase mb-2 text-fg">Opening Hours</h3>
                   <ul className="text-fg/60 space-y-1 text-sm">
-                    <li className="flex justify-between w-48"><span>Mon - Sat</span> <span>10:00 - 18:00</span></li>
-                    <li className="flex justify-between w-48"><span>Sunday</span> <span>11:00 - 17:00</span></li>
+                    <li className="flex justify-between w-56 font-bold text-accent"><span>Tuesday</span> <span>Closed</span></li>
+                    <li className="flex justify-between w-56"><span>Mon, Wed - Sat</span> <span>10:00 - 18:00</span></li>
+                    <li className="flex justify-between w-56"><span>Sunday</span> <span>12:00 - 18:00</span></li>
+                    <li className="pt-2 text-[10px] uppercase tracking-wider opacity-60 border-t border-fg/5 mt-2">
+                      Holidays: open every day 10-18u (Sun 12-18u)
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -39,7 +43,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl uppercase mb-2 text-fg">Contact</h3>
-                  <p className="text-fg/60">+32 50 42 31 11</p>
+                  <p className="text-fg/60">050/73 15 66</p>
                   <p className="text-fg/60">info@dailygrind.be</p>
                 </div>
               </div>
@@ -75,7 +79,7 @@ export default function Contact() {
 
           <div className="h-[400px] lg:h-auto bg-bg border border-fg/5 relative overflow-hidden shadow-2xl shadow-fg/5">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2500.672803875323!2d3.128741377054361!3d51.31713602464731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c350b919999999%3A0x9999999999999999!2sKerkstraat%2061%2C%208370%20Blankenberge!5e0!3m2!1sen!2sbe!4v1710460000000!5m2!1sen!2sbe" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2500.672803875323!2d3.128741377054361!3d51.31713602464731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c350b919999999%3A0x9999999999999999!2sLangestraat%201%2C%208370%20Blankenberge!5e0!3m2!1sen!2sbe!4v1710460000000!5m2!1sen!2sbe" 
               className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
               style={{ border: 0 }} 
               allowFullScreen={true} 

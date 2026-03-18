@@ -58,7 +58,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 </p>
                 <div className="flex items-center justify-between mb-12">
                   <span className="text-3xl font-display font-bold">{product.price}</span>
-                  <span className="text-[10px] uppercase tracking-widest text-fg/40 font-bold">In stock: Kerkstraat 61</span>
+                  <span className="text-[10px] uppercase tracking-widest text-fg/40 font-bold">In stock: Langestraat 1</span>
                 </div>
                 
                 <button className="hidden md:flex w-full bg-fg text-bg font-display font-bold py-5 uppercase tracking-[0.2em] hover:bg-accent transition-colors items-center justify-center gap-3 group" onClick={onClose}>

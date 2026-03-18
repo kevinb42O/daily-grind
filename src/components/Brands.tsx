@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 const brands = [
-  "Vans", "Carhartt WIP", "Dickies", "Polar Skate Co", 
-  "Magenta", "Nike SB", "Adidas", "Santa Cruz", 
+  "Helas", "Carhartt WIP", "Dickies", "Polar Skate Co", 
+  "Magenta", "Huf", "Adidas", "Santa Cruz", 
   "Thrasher", "Independent", "Spitfire", "Bones"
 ];
 
