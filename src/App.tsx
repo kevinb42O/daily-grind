@@ -87,7 +87,7 @@ function HomePage() {
                 Gelegen in het hart van Blankenberge, is Daily Grind meer dan alleen een skateshop. Het is een ontmoetingsplaats voor de lokale community, een plek waar passie voor het board samenkomt met high-end streetstyle.
               </p>
               <p>
-                We selecteren elk merk en product met de hand, zodat alleen de hoogste kwaliteit hardware en kledij in onze rekken belandt. Van de nieuwste Nike SB drops tot core skate merken zoals Polar en Magenta, wij hebben alles wat je nodig hebt.
+                We selecteren elk merk en product met de hand, zodat alleen de hoogste kwaliteit hardware en kledij in onze rekken belandt. Van de nieuwste Adidas drops tot core skate merken zoals Polar en Magenta, wij hebben alles wat je nodig hebt.
               </p>
               <Link to="/about" className="group flex items-center gap-4 font-display font-bold uppercase tracking-widest mt-8">
                 <span className="group-hover:text-accent transition-colors text-fg">Lees ons volledige verhaal</span>
