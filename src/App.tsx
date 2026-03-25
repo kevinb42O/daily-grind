@@ -142,6 +142,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="/category/:category/:subcategory" element={<CategoryPage />} />
+
             <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
