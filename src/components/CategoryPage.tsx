@@ -23,7 +23,14 @@ export default function CategoryPage() {
 
   const [priceRange, setPriceRange] = React.useState<[number, number]>([0, priceLimit]);
 
+  const [visibleCount, setVisibleCount] = React.useState(12);
+
+  React.useEffect(() => {
+    setVisibleCount(12);
+  }, [category, subcategory, selectedBrand, priceRange, sort]);
+
   const filteredProducts = React.useMemo(() => {
+    // ... filtering logic ...
     let result = products.filter(p => {
       const matchCategory = p.category?.toLowerCase() === category?.toLowerCase();
       const matchSubcategory = !subcategory || 
@@ -121,15 +128,29 @@ export default function CategoryPage() {
             </div>
 
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
-                {filteredProducts.map((product, index) => (
-                  <ProductCard 
-                    key={product.id} 
-                    product={product} 
-                    index={index} 
-                    onClick={setSelectedProduct} 
-                  />
-                ))}
+              <div className="space-y-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
+                  {filteredProducts.slice(0, visibleCount).map((product, index) => (
+                    <ProductCard 
+                      key={product.id} 
+                      product={product} 
+                      index={index} 
+                      onClick={setSelectedProduct} 
+                    />
+                  ))}
+                </div>
+
+                {visibleCount < filteredProducts.length && (
+                  <div className="flex justify-center pt-8">
+                    <button
+                      onClick={() => setVisibleCount(prev => prev + 12)}
+                      className="group relative px-12 py-4 bg-transparent border-2 border-fg text-fg font-display font-black uppercase tracking-[0.3em] text-sm hover:text-bg transition-colors duration-300"
+                    >
+                      <div className="absolute inset-0 bg-fg scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left -z-10" />
+                      MEER LADEN
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="py-24 text-center border border-fg/5 bg-surface">

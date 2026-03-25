@@ -13,8 +13,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onClick }) =>
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      viewport={{ once: true, margin: "200px" }}
       className="group cursor-pointer"
       onClick={() => onClick(product)}
     >
@@ -22,7 +22,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onClick }) =>
         <img 
           src={product.image} 
           alt={product.name} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
       </div>
