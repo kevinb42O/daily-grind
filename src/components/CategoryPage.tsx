@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, SlidersHorizontal } from 'lucide-react';
 import { products, Product } from '../data/products';
 import ProductCard from './ProductCard';
@@ -10,6 +10,7 @@ import FilterSidebar from './FilterSidebar';
 export default function CategoryPage() {
   const { category, subcategory } = useParams<{ category: string; subcategory?: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(null);
   const [sort, setSort] = React.useState<SortOption>('default');
   const [selectedBrand, setSelectedBrand] = React.useState<string | null>(null);
@@ -24,6 +25,11 @@ export default function CategoryPage() {
   const [priceRange, setPriceRange] = React.useState<[number, number]>([0, priceLimit]);
 
   const [visibleCount, setVisibleCount] = React.useState(12);
+
+  React.useEffect(() => {
+    const brandFromQuery = new URLSearchParams(location.search).get('brand');
+    setSelectedBrand(brandFromQuery ? brandFromQuery.toUpperCase() : null);
+  }, [location.search]);
 
   React.useEffect(() => {
     setVisibleCount(12);

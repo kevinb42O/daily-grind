@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { products } from '../data/products';
 
 const brands = [
   "Helas", "Carhartt WIP", "Dickies", "Polar Skate Co", 
@@ -8,6 +10,29 @@ const brands = [
 ];
 
 export default function Brands() {
+  const brandTargets = React.useMemo(() => {
+    const productBrandToCategory = new Map<string, string>();
+
+    products.forEach((product) => {
+      const brandToken = product.name.split(' ')[0].toUpperCase();
+      if (!productBrandToCategory.has(brandToken)) {
+        productBrandToCategory.set(brandToken, product.category);
+      }
+    });
+
+    return brands
+      .map((brandLabel) => {
+        const brandToken = brandLabel.split(' ')[0].toUpperCase();
+        const category = productBrandToCategory.get(brandToken);
+        return {
+          label: brandLabel,
+          brandToken,
+          category
+        };
+      })
+      .filter((entry): entry is { label: string; brandToken: string; category: string } => Boolean(entry.category));
+  }, []);
+
   return (
     <section id="brands" className="py-24 bg-bg text-fg">
       <div className="max-w-7xl mx-auto px-6">
@@ -20,17 +45,22 @@ export default function Brands() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {brands.map((brand, index) => (
+          {brandTargets.map((brand, index) => (
             <motion.div
-              key={brand}
+              key={brand.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="border-b border-fg/10 py-6 flex items-center justify-between group cursor-pointer"
+              className="border-b border-fg/10 py-6"
             >
-              <span className="font-display text-2xl font-bold uppercase group-hover:text-accent transition-colors text-fg">{brand}</span>
-              <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-accent font-bold">VIEW ALL</span>
+              <Link
+                to={`/category/${brand.category.toLowerCase()}?brand=${encodeURIComponent(brand.brandToken)}`}
+                className="flex items-center justify-between group"
+              >
+                <span className="font-display text-2xl font-bold uppercase group-hover:text-accent transition-colors text-fg">{brand.label}</span>
+                <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-accent font-bold">VIEW ALL</span>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -4,8 +4,9 @@ import Hero from './components/Hero';
 import Brands from './components/Brands';
 import Contact from './components/Contact';
 import ProductGrid from './components/ProductGrid';
-import { motion, useScroll, useSpring, useTransform } from 'motion/react';
-import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, ArrowUpRight, ExternalLink } from 'lucide-react';
+import InstagramCarousel from './components/InstagramCarousel';
+import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'motion/react';
+import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, ArrowUpRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import CategoryPage from './components/CategoryPage';
@@ -29,6 +30,75 @@ function HomePage() {
     offset: ['start end', 'end start']
   });
   const teamBackgroundY = useTransform(teamScrollProgress, [0, 1], [-80, 80]);
+  const skateVideos = React.useMemo(
+    () => [
+      { id: 'UPyuc9f4oS0', label: 'Daily Grind On The Road Pier 15', startSeconds: 60 },
+      { id: 'gFHPSDK6iKo', label: 'Barca 2k18', startSeconds: 60 },
+      { id: 'U3g47trpkyg', label: 'Luxemboerg', startSeconds: 60 },
+      { id: '_0h_YTT82BA', label: 'Jona Mix', startSeconds: 60 },
+      { id: 'Z68AZH50KUE', label: 'Glenn Van Der Gheylen Street Throw Away Footy 2016', startSeconds: 60 }
+    ],
+    []
+  );
+  const [videoIndex, setVideoIndex] = React.useState(0);
+  const [isVideoLoading, setIsVideoLoading] = React.useState(true);
+  const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+  const hideOverlayTimeoutRef = React.useRef<number | null>(null);
+
+  React.useEffect(() => {
+    const timer = window.setInterval(() => {
+      setVideoIndex((prev) => (prev + 1) % skateVideos.length);
+    }, 30000);
+
+    return () => window.clearInterval(timer);
+  }, [skateVideos.length]);
+
+  React.useEffect(() => {
+    setIsVideoLoading(true);
+    setIsVideoLoaded(false);
+
+    if (hideOverlayTimeoutRef.current) {
+      window.clearTimeout(hideOverlayTimeoutRef.current);
+      hideOverlayTimeoutRef.current = null;
+    }
+  }, [videoIndex]);
+
+  React.useEffect(() => {
+    return () => {
+      if (hideOverlayTimeoutRef.current) {
+        window.clearTimeout(hideOverlayTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const activeVideo = skateVideos[videoIndex];
+  const previousVideoIndex = (videoIndex - 1 + skateVideos.length) % skateVideos.length;
+  const nextVideoIndex = (videoIndex + 1) % skateVideos.length;
+  const previousVideo = skateVideos[previousVideoIndex];
+  const nextVideo = skateVideos[nextVideoIndex];
+
+  const goToPreviousVideo = React.useCallback(() => {
+    setVideoIndex((prev) => (prev - 1 + skateVideos.length) % skateVideos.length);
+  }, [skateVideos.length]);
+
+  const goToNextVideo = React.useCallback(() => {
+    setVideoIndex((prev) => (prev + 1) % skateVideos.length);
+  }, [skateVideos.length]);
+
+  const handleVideoLoaded = React.useCallback(() => {
+    if (hideOverlayTimeoutRef.current) {
+      window.clearTimeout(hideOverlayTimeoutRef.current);
+    }
+
+    setIsVideoLoaded(true);
+
+    // Keep the branded overlay visible briefly after playback starts.
+    hideOverlayTimeoutRef.current = window.setTimeout(() => {
+      setIsVideoLoading(false);
+      setIsVideoLoaded(false);
+      hideOverlayTimeoutRef.current = null;
+    }, 5000);
+  }, []);
 
   return (
     <>
@@ -40,6 +110,208 @@ function HomePage() {
           DAILY GRIND BLANKENBERGE — SKATEBOARDS — STREETWEAR — SNEAKERS — HARDWARE — COMMUNITY — DAILY GRIND BLANKENBERGE — SKATEBOARDS — STREETWEAR — SNEAKERS — HARDWARE — COMMUNITY —
         </div>
       </div>
+
+      <section className="py-20 md:py-24 bg-surface border-y border-fg/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-end mb-8">
+            <div className="lg:col-span-3">
+              <p className="text-accent font-display font-bold uppercase tracking-widest text-xs mb-3">Daily Grind TV</p>
+              <h2 className="text-4xl md:text-6xl font-black leading-[0.95] text-fg">See The Shop In Motion</h2>
+            </div>
+            <div className="lg:col-span-2 lg:text-right flex flex-col lg:items-end gap-3">
+              <a
+                href={`https://www.youtube.com/watch?v=${activeVideo.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[10px] md:text-xs font-display font-bold uppercase tracking-widest border-b-2 border-fg pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                Watch on YouTube
+                <ExternalLink size={14} />
+              </a>
+              <p className="text-[10px] md:text-xs text-fg/65 font-display uppercase tracking-widest">
+                Auto-switch every 30s
+              </p>
+            </div>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-3 md:gap-5">
+            <motion.button
+              onClick={goToPreviousVideo}
+              aria-label="Play previous video"
+              className="group h-14 w-14 md:h-16 md:w-16 brutal-border bg-fg text-bg flex flex-col items-center justify-center gap-0.5 hover:bg-accent transition-all"
+              whileHover={{ y: -2, rotate: -2 }}
+              whileTap={{ scale: 0.94 }}
+            >
+              <ChevronLeft size={20} />
+              <span className="font-display font-bold uppercase tracking-widest text-[8px] md:text-[9px]">Prev</span>
+            </motion.button>
+
+            <div className="relative overflow-hidden brutal-border bg-black shadow-[0_25px_60px_rgba(0,0,0,0.20)]">
+              <div className="aspect-video">
+                <motion.iframe
+                  key={activeVideo.id}
+                  className="w-full h-full"
+                  src={`https://www.youtube-nocookie.com/embed/${activeVideo.id}?start=${activeVideo.startSeconds}&autoplay=1&mute=1&rel=0&playsinline=1`}
+                  title="Daily Grind Blankenberge skate video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  onLoad={handleVideoLoaded}
+                  initial={{ scale: 1.08, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </div>
+
+              <AnimatePresence>
+                {isVideoLoading && (
+                  <motion.div
+                    className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white"
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0"
+                      initial={{ scale: 1.04 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      style={{
+                        background:
+                          'radial-gradient(80% 120% at 50% 50%, rgba(196,43,43,0.22) 0%, rgba(0,0,0,0.76) 65%, rgba(0,0,0,0.92) 100%)'
+                      }}
+                    />
+
+                    <AnimatePresence mode="wait">
+                      {!isVideoLoaded ? (
+                        <motion.div
+                          key={`loading-${activeVideo.id}`}
+                          className="relative z-10 flex flex-col items-center"
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.35 }}
+                        >
+                          <motion.img
+                            src="/images/site/logo_daily_hero2.png"
+                            alt="Daily Grind logo"
+                            className="w-52 md:w-64"
+                            initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ duration: 0.45 }}
+                          />
+                          <div className="mt-6 flex items-center gap-3">
+                            <span className="w-5 h-5 border-2 border-accent border-t-white rounded-full animate-spin" />
+                            <span className="font-display font-bold uppercase tracking-widest text-[10px] md:text-xs text-white/80">
+                              Loading next clip
+                            </span>
+                          </div>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key={`reveal-${activeVideo.id}`}
+                          className="relative z-10 flex flex-col items-center px-4"
+                          initial={{ opacity: 0, scale: 0.94, y: 10 }}
+                          animate={{ opacity: [0, 1, 1, 0], scale: [0.94, 1, 1, 1.04], y: [10, 0, 0, -6] }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 4.2, ease: [0.22, 1, 0.36, 1] }}
+                        >
+                          <img
+                            src="/images/site/logo_daily_hero2.png"
+                            alt="Daily Grind logo reveal"
+                            className="w-[78vw] max-w-[760px]"
+                          />
+                          <p className="text-center font-display font-black uppercase tracking-[0.22em] text-xs md:text-sm text-accent mt-5">
+                            {activeVideo.label}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <motion.button
+              onClick={goToNextVideo}
+              aria-label="Play next video"
+              className="group h-14 w-14 md:h-16 md:w-16 brutal-border bg-fg text-bg flex flex-col items-center justify-center gap-0.5 hover:bg-accent transition-all"
+              whileHover={{ y: -2, rotate: 2 }}
+              whileTap={{ scale: 0.94 }}
+            >
+              <ChevronRight size={20} />
+              <span className="font-display font-bold uppercase tracking-widest text-[8px] md:text-[9px]">Next</span>
+            </motion.button>
+          </div>
+
+          <div className="mt-6 space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="font-display font-bold uppercase tracking-widest text-[10px] md:text-xs text-fg/70">
+                Clip {videoIndex + 1} / {skateVideos.length}: {activeVideo.label}
+              </p>
+              <p className="font-display font-bold uppercase tracking-widest text-[10px] md:text-xs text-accent">
+                Carousel mode active
+              </p>
+            </div>
+
+            <div className="h-1.5 bg-fg/10 overflow-hidden brutal-border">
+              <motion.div
+                key={videoIndex}
+                className="h-full bg-accent"
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 30, ease: 'linear' }}
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <button
+                onClick={goToPreviousVideo}
+                className="group relative overflow-hidden brutal-border text-left"
+                aria-label={`Play previous clip ${previousVideo.label}`}
+              >
+                <img
+                  src={`https://i.ytimg.com/vi/${previousVideo.id}/hqdefault.jpg`}
+                  alt={previousVideo.label}
+                  className="w-full h-24 object-cover"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/28 transition-colors" />
+                <div className="absolute inset-y-0 left-0 px-3 flex flex-col justify-center">
+                  <p className="font-display font-bold uppercase tracking-[0.2em] text-[9px] text-white/70">Previous</p>
+                  <p className="font-display font-black uppercase tracking-widest text-xs text-white mt-1 truncate max-w-[220px]">
+                    {previousVideo.label}
+                  </p>
+                </div>
+              </button>
+
+              <button
+                onClick={goToNextVideo}
+                className="group relative overflow-hidden brutal-border text-left"
+                aria-label={`Play next clip ${nextVideo.label}`}
+              >
+                <img
+                  src={`https://i.ytimg.com/vi/${nextVideo.id}/hqdefault.jpg`}
+                  alt={nextVideo.label}
+                  className="w-full h-24 object-cover"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/28 transition-colors" />
+                <div className="absolute inset-y-0 right-0 px-3 flex flex-col justify-center items-end text-right">
+                  <p className="font-display font-bold uppercase tracking-[0.2em] text-[9px] text-white/70">Next</p>
+                  <p className="font-display font-black uppercase tracking-widest text-xs text-white mt-1 truncate max-w-[220px]">
+                    {nextVideo.label}
+                  </p>
+                </div>
+              </button>
+            </div>
+              </div>
+        </div>
+      </section>
 
       <ProductGrid />
 
@@ -98,6 +370,8 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <InstagramCarousel />
 
       <Brands />
       

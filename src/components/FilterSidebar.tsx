@@ -30,13 +30,24 @@ export default function FilterSidebar({
   });
 
   const brands = React.useMemo(() => {
+    const scopedProducts = products.filter((p) => {
+      const matchCategory = p.category?.toLowerCase() === currentCategory.toLowerCase();
+      const matchSubcategory =
+        !currentSubcategory ||
+        p.subcategory?.toLowerCase() === currentSubcategory.toLowerCase() ||
+        p.subcategory?.toLowerCase().replace(/ /g, '-') === currentSubcategory.toLowerCase();
+
+      return matchCategory && matchSubcategory;
+    });
+
     const set = new Set<string>();
-    products.forEach(p => {
+    scopedProducts.forEach((p) => {
       const brand = p.name.split(' ')[0].toUpperCase();
       if (brand) set.add(brand);
     });
+
     return Array.from(set).sort();
-  }, [products]);
+  }, [products, currentCategory, currentSubcategory]);
 
   const categories = React.useMemo(() => {
     const rootCats = ['Skateboards', 'Kledij', 'Schoenen', 'Accessoires'];
