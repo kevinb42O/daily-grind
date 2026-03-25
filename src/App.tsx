@@ -12,6 +12,7 @@ import CategoryPage from './components/CategoryPage';
 import AboutPage from './components/AboutPage';
 import BackToTop from './components/BackToTop';
 import LegalModal from './components/LegalModal';
+import NotFoundPage from './components/NotFoundPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -145,6 +146,7 @@ export default function App() {
             <Route path="/category/:category/:subcategory" element={<CategoryPage />} />
 
             <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
 
