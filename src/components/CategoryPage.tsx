@@ -144,10 +144,10 @@ export default function CategoryPage() {
                   <div className="flex justify-center pt-8">
                     <button
                       onClick={() => setVisibleCount(prev => prev + 12)}
-                      className="w-full flex items-center justify-center gap-4 py-8 bg-fg text-bg font-display font-black uppercase tracking-[0.5em] text-sm hover:bg-accent hover:text-white transition-all duration-500 brutal-border cursor-pointer group"
+                      className="inline-flex items-center justify-center gap-4 px-10 py-4 bg-fg text-bg font-display font-black uppercase tracking-[0.3em] text-xs hover:bg-accent hover:text-white transition-all duration-300 brutal-border cursor-pointer group"
                     >
-                      Meer Laden 
-                      <div className="w-12 h-[2px] bg-bg group-hover:bg-white group-hover:w-16 transition-all" />
+                      MEER LADEN
+                      <div className="w-8 h-[2px] bg-bg group-hover:bg-white group-hover:w-12 transition-all" />
                     </button>
                   </div>
                 )}
