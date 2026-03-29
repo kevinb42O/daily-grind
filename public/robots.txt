@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dailygrindblankenberge.be/sitemap.xml
-Host: dailygrindblankenberge.be
+Sitemap: https://daily-grind-gray.vercel.app/sitemap.xml
+Host: daily-grind-gray.vercel.app
