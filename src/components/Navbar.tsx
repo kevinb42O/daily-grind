@@ -76,6 +76,13 @@ export default function Navbar() {
               <Link to="/category/accessoires/belts" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Belts</Link>
             </div>
           </div>
+
+          <div className="relative group">
+            <Link to="/skateparks-west-vlaanderen" className="hover:text-accent transition-colors block py-2">
+              Skateparks
+              <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
+            </Link>
+          </div>
           
           <div className="relative group">
             <Link to="/about" className="hover:text-accent transition-colors block py-2">
@@ -202,6 +209,7 @@ export default function Navbar() {
             </div>
           </div>
 
+          <Link to="/skateparks-west-vlaanderen" onClick={() => setIsOpen(false)} className="hover:text-accent transition-colors">Skateparks</Link>
           <Link to="/about" onClick={() => setIsOpen(false)} className="hover:text-accent transition-colors">About</Link>
           
           <div className="flex gap-6 pt-4 border-t border-white/10">

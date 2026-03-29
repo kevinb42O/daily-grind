@@ -9,11 +9,14 @@ import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'mot
 import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, ArrowUpRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
-import CategoryPage from './components/CategoryPage';
-import AboutPage from './components/AboutPage';
 import BackToTop from './components/BackToTop';
 import LegalModal from './components/LegalModal';
 import NotFoundPage from './components/NotFoundPage';
+
+const CategoryPage = React.lazy(() => import('./components/CategoryPage'));
+const AboutPage = React.lazy(() => import('./components/AboutPage'));
+const SkateparkDirectoryPage = React.lazy(() => import('./components/skateparks/SkateparkDirectoryPage'));
+const SkateparkDetailPage = React.lazy(() => import('./components/skateparks/SkateparkDetailPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -371,6 +374,43 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="py-24 bg-fg text-bg overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="relative brutal-border overflow-hidden min-h-[560px] flex items-end">
+            <img
+              src="/images/site/skateparkguide.jpg"
+              alt="West-Vlaanderen skatepark guide"
+              className="absolute inset-0 h-full w-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.82)_0%,rgba(0,0,0,0.58)_45%,rgba(0,0,0,0.28)_100%)]" />
+
+            <div className="relative z-10 max-w-3xl p-8 md:p-12 lg:p-16">
+              <p className="text-accent font-display font-bold uppercase tracking-widest text-xs mb-4">Skatepark Guide</p>
+              <h2 className="text-5xl md:text-7xl font-black leading-[0.95] text-white mb-6">Alle Spots In West-Vlaanderen. Op Kaart.</h2>
+              <p className="text-lg text-white/78 leading-relaxed max-w-2xl">
+                We hebben een complete skatepark-hub gebouwd met adressen, coördinaten, filters, indoor/outdoor info en een detailpagina per spot. Handig voor locals, roadtrips en iedereen die de scene van West-Vlaanderen echt wil rijden.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  to="/skateparks-west-vlaanderen"
+                  className="inline-flex items-center justify-center gap-3 bg-accent px-8 py-4 font-display font-black uppercase tracking-[0.24em] text-xs hover:bg-white hover:text-fg transition-all"
+                >
+                  Open de skate map
+                  <ArrowUpRight size={16} />
+                </Link>
+                <Link
+                  to="/skateparks-west-vlaanderen#brugge-noordwest"
+                  className="inline-flex items-center justify-center border border-white/15 px-8 py-4 font-display font-black uppercase tracking-[0.24em] text-xs text-white hover:border-accent hover:text-accent transition-all"
+                >
+                  Start bij de kust
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <InstagramCarousel />
 
       <Brands />
@@ -414,14 +454,27 @@ export default function App() {
         <Navbar />
         
         <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/category/:category" element={<CategoryPage />} />
-            <Route path="/category/:category/:subcategory" element={<CategoryPage />} />
+          <React.Suspense
+            fallback={
+              <div className="min-h-[60vh] flex items-center justify-center bg-bg px-6">
+                <div className="flex items-center gap-3 font-display font-bold uppercase tracking-[0.2em] text-xs text-fg/60">
+                  <span className="w-4 h-4 border-2 border-accent border-t-fg rounded-full animate-spin" />
+                  Loading session
+                </div>
+              </div>
+            }
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/category/:category" element={<CategoryPage />} />
+              <Route path="/category/:category/:subcategory" element={<CategoryPage />} />
 
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/skateparks-west-vlaanderen" element={<SkateparkDirectoryPage />} />
+              <Route path="/skateparks-west-vlaanderen/:slug" element={<SkateparkDetailPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </React.Suspense>
         </main>
 
         <footer className="bg-fg text-bg pt-24 pb-12 px-6">
@@ -480,6 +533,7 @@ export default function App() {
                   <li><Link to="/category/kledij" className="hover:text-accent transition-colors flex items-center gap-2 group">Kledij <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
                   <li><Link to="/category/schoenen" className="hover:text-accent transition-colors flex items-center gap-2 group">Schoenen <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
                   <li><Link to="/category/accessoires" className="hover:text-accent transition-colors flex items-center gap-2 group">Accessoires <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                  <li><Link to="/skateparks-west-vlaanderen" className="hover:text-accent transition-colors flex items-center gap-2 group">Skateparks <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
                   <li><Link to="/about" className="hover:text-accent transition-colors flex items-center gap-2 group">Over Ons <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
                 </ul>
               </div>

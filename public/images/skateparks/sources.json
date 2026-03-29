@@ -1,0 +1,579 @@
+[
+  {
+    "id": "entrepot-brugge",
+    "slug": "skatepark-het-entrepot-brugge",
+    "name": "Skatepark Het Entrepot",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/skatepark-het-entrepot-brugge/",
+    "sourceQuery": "User supplied local images for Skatepark Het Entrepot",
+    "outputFile": "public/images/skateparks/skatepark-het-entrepot-brugge/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-het-entrepot-brugge/cover.jpg",
+      "public/images/skateparks/skatepark-het-entrepot-brugge/gallery-1.jpg",
+      "public/images/skateparks/skatepark-het-entrepot-brugge/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/skatepark-het-entrepot-brugge/cover.jpg",
+      "public/images/skateparks/skatepark-het-entrepot-brugge/27entrepot2.jpg",
+      "public/images/skateparks/skatepark-het-entrepot-brugge/5entrepot3.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "daverlo-brugge",
+    "slug": "skatepark-daverlo-brugge",
+    "name": "Skatepark Daverlo",
+    "success": true,
+    "sourceType": "project-gallery",
+    "sourceQuery": "Skatepark Daverlo Dries 2 Assebroek",
+    "sourceUrl": "https://databank.publiekeruimte.info/project/sportpark-daverlo-brugge/",
+    "outputFile": "public/images/skateparks/skatepark-daverlo-brugge/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-daverlo-brugge/cover.jpg",
+      "public/images/skateparks/skatepark-daverlo-brugge/gallery-1.jpg",
+      "public/images/skateparks/skatepark-daverlo-brugge/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "https://i0.wp.com/databank.publiekeruimte.info/wp-content/uploads/2017/02/Sportpark-Daverlo-Brugge.png?fit=1200%2C750&ssl=1",
+      "https://i0.wp.com/databank.publiekeruimte.info/wp-content/uploads/2017/07/Brugge-Daverlo_03.png?fit=1920%2C1200&ssl=1",
+      "https://i0.wp.com/databank.publiekeruimte.info/wp-content/uploads/2017/07/Brugge-Daverlo_08.png?fit=1920%2C1200&ssl=1"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "beastwood-brugge",
+    "slug": "beastwood-skatepark-brugge",
+    "name": "Beastwood Skatepark",
+    "success": true,
+    "sourceType": "google-maps-user-photos",
+    "sourceQuery": "Skatepark Beastwood Sint-Michiels",
+    "sourceUrl": "https://www.google.com/maps/place/Skatepark+Beastwood/@51.1872903,3.1982601,17z/data=!3m1!4b1!4m6!3m5!1s0x47c351ec65238507:0x6f6bbb66dcc5b8f!8m2!3d51.1872903!4d3.1982601!16s%2Fg%2F11pxs4l0zv?hl=nl&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D",
+    "placeName": "Beastwood Skatepark",
+    "outputFile": "public/images/skateparks/beastwood-skatepark-brugge/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/beastwood-skatepark-brugge/cover.jpg",
+      "public/images/skateparks/beastwood-skatepark-brugge/gallery-1.jpg",
+      "public/images/skateparks/beastwood-skatepark-brugge/gallery-2.jpg"
+    ],
+    "photoUrls": [
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweq4eBwQjea3N3foLdJsq1mKi-85V6GqnNXlieAbBCZ2c91QkckXANy5SEZWNu6K3ATGeqeNO8ILTx7t422f_5iDp_zYDD3PNahJyeOhmeXsqyjR4g8MTq9NeC47auiROxFCrCLb=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwernwMlQfwSPtgjrgywu2V7eaAcGs4jN0sg1RWgYCMowxhzRSoUnrI5pzW9JI_2XNj_-FWwcFrBRjj_qar5xForhrSfBDlZaKCsY3m6YVLY2b7g4rEhDql_I3PGQiNa6aq6E5SGY=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweoID0F9vFXY6k1TVjiSI8_QuWsHI1i0H9IMdw7P8iiXS4BZUxBtlUspG43SG8p2nc_6K4iIbWymDLb43CUzKyY7p3MnVmfUyXED17mR1oj72heWz1ZXF7oPRkUgy2CKlixIcbGo=w1600-h1200-k-no"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "blankenberge",
+    "slug": "skatepark-blankenberge",
+    "name": "Skatepark Blankenberge",
+    "success": true,
+    "sourceType": "google-maps-user-photos",
+    "sourceQuery": "skatepark blankenberge",
+    "sourceUrl": "https://www.google.com/maps/place/Skatepark+%F0%9F%9B%B9/@51.3157915,3.1444773,17z/data=!3m1!4b1!4m6!3m5!1s0x47c4aa6de3653205:0x41df53a27b0b3110!8m2!3d51.3157915!4d3.1444773!16s%2Fg%2F11crzrw909?hl=nl&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D",
+    "placeName": "Skatepark Blankenberge",
+    "outputFile": "public/images/skateparks/skatepark-blankenberge/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-blankenberge/cover.jpg",
+      "public/images/skateparks/skatepark-blankenberge/gallery-1.jpg",
+      "public/images/skateparks/skatepark-blankenberge/gallery-2.jpg"
+    ],
+    "photoUrls": [
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweoi4vp4twQUJmUXIVITrJTzwr02fmXZIvza5Nh2YXmuzgdo7QDbZZZkk5OR8w93_acJSWWLCYx6bEhVTbwcNxtcY3FCn89qdj8hrFawmRLrjCahedw0xAb6uoNHwmAe5YMaUk9Y=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerfZLzqC0q2v3qIMGHciGVdmA0HYMf1teVqLt_vhYWo1OKP0ePn5hWl8TIT2phICa20T6rJB2KJcdPKsKFVE0x2MnzlGxQAJQBB96NRPINTPSZNLIyAho1KcZGSLUm75grlXMZUpw=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweq4lC0GWjRZXhggBdKKsRtPqU27m7u-2GIoc7CUMFsxLrHGAOqtSl1t8YJtEhErsgOYY5uZovk5J9Rp4Y_rh4Ge0-LTpzF9K38oZ4pMVg6x5MMRP6OrlmsRv8vPhEWSmH9fpfEuhw=w1600-h1200-k-no"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "rotonde-wenduine",
+    "slug": "skatepark-rotonde-wenduine",
+    "name": "Skatepark Rotonde",
+    "success": true,
+    "sourceType": "official-research",
+    "sourceUrl": "https://www.dehaan.be/skateparken",
+    "sourceQuery": "Skatepark Rotonde Wenduine Zeedijk-Wenduine",
+    "outputFile": "public/images/skateparks/skatepark-rotonde-wenduine/cover.jpg",
+    "attempts": []
+  },
+  {
+    "id": "groene-meersen-zedelgem",
+    "slug": "skatepark-groene-meersen-zedelgem",
+    "name": "Skatepark Groene Meersen",
+    "success": true,
+    "sourceType": "google-maps-user-photos",
+    "sourceQuery": "Skatepark Groene Meersen Zedelgem",
+    "sourceUrl": "https://www.google.com/maps/place/Skatepark+Groene+Meersen/@51.1401918,3.1519942,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3537baaf0aeb5:0x682bac4860135582!8m2!3d51.1401918!4d3.1519942!16s%2Fg%2F11trp90dl5?hl=nl&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D",
+    "placeName": "Skatepark Groene Meersen",
+    "outputFile": "public/images/skateparks/skatepark-groene-meersen-zedelgem/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-groene-meersen-zedelgem/cover.jpg",
+      "public/images/skateparks/skatepark-groene-meersen-zedelgem/gallery-1.jpg",
+      "public/images/skateparks/skatepark-groene-meersen-zedelgem/gallery-2.jpg"
+    ],
+    "photoUrls": [
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqhDH1gCodVMFaQpQOe291h6cNjm8I44jHVxLCvrABAdKIOhA8oCwSq88ME4lS4wTN9mcdkaniUgfibbR3E8RAyMUfr72aLthrC8BiHmSVLBjxOev85HW_THWibxdA3R5MyzlbY=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqhDH1gCodVMFaQpQOe291h6cNjm8I44jHVxLCvrABAdKIOhA8oCwSq88ME4lS4wTN9mcdkaniUgfibbR3E8RAyMUfr72aLthrC8BiHmSVLBjxOev85HW_THWibxdA3R5MyzlbY=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqhDH1gCodVMFaQpQOe291h6cNjm8I44jHVxLCvrABAdKIOhA8oCwSq88ME4lS4wTN9mcdkaniUgfibbR3E8RAyMUfr72aLthrC8BiHmSVLBjxOev85HW_THWibxdA3R5MyzlbY=w1600-h1200-k-no"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "bosserij-veldegem",
+    "slug": "skateterrein-bosserij-veldegem",
+    "name": "Skateterrein Bosserij",
+    "success": true,
+    "sourceUrl": "https://www.moevement.be/sites/default/files/bovenaanzicht_2.jpg",
+    "sourceQuery": "Skateterrein Bosserij Veldegem skatepark",
+    "outputFile": "public/images/skateparks/skateterrein-bosserij-veldegem/cover.jpg",
+    "attempts": [
+      {
+        "query": "Skateterrein Bosserij Veldegem skatepark",
+        "candidate": "https://toerismezoersel.be/wp-content/uploads/2023/07/skateboard-g532cdef29_1280.jpg",
+        "error": "Unsupported image format for conversion"
+      }
+    ]
+  },
+  {
+    "id": "jabbeke",
+    "slug": "skatepark-jabbeke",
+    "name": "Skatepark Jabbeke",
+    "success": true,
+    "sourceType": "news-gallery",
+    "sourceQuery": "Skatepark Jabbeke Vlamingveld 40",
+    "sourceUrl": "https://www.westnieuws.be/jabbeke-juicht-nieuw-skatepark-opent-de-deuren/",
+    "outputFile": "public/images/skateparks/skatepark-jabbeke/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-jabbeke/cover.jpg",
+      "public/images/skateparks/skatepark-jabbeke/gallery-1.jpg",
+      "public/images/skateparks/skatepark-jabbeke/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "https://www.westnieuws.be/wp-content/uploads/2024/03/DSC_0068-1-jpg.webp",
+      "https://www.westnieuws.be/wp-content/uploads/2024/03/DSC_0062-1-1024x683.webp",
+      "https://www.westnieuws.be/wp-content/uploads/2024/03/DSC_0054-1-1024x683.webp"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "de-valkaart-oostkamp",
+    "slug": "skatepark-de-valkaart-oostkamp",
+    "name": "Skatepark De Valkaart",
+    "success": true,
+    "sourceUrl": "https://www.oostkamp.be/file/imagecache/4FB71F14302CF4D2A43B3078ADA080D5/Content/c14f1d49-24c6-44f6-a009-80482753d0bf/1102.jpg",
+    "sourceQuery": "manual override",
+    "outputFile": "public/images/skateparks/skatepark-de-valkaart-oostkamp/cover.jpg",
+    "attempts": []
+  },
+  {
+    "id": "ridefort-ruddervoorde",
+    "slug": "skatepark-ridefort-ruddervoorde",
+    "name": "Skatepark Ridefort",
+    "success": true,
+    "sourceType": "skatespots-gallery",
+    "sourceQuery": "Ridefort skatepark Ruddervoorde Ridefort 8020",
+    "sourceUrl": "https://www.skatespots.be/spots/be/oostkamp/ridefort-skatepark-ruddervoorde/",
+    "outputFile": "public/images/skateparks/skatepark-ridefort-ruddervoorde/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-ridefort-ruddervoorde/cover.jpg",
+      "public/images/skateparks/skatepark-ridefort-ruddervoorde/gallery-1.jpg",
+      "public/images/skateparks/skatepark-ridefort-ruddervoorde/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "https://www.skatespots.be/spots/belg/pics/image/skatepark_ruddervoorde.jpg",
+      "https://www.skatespots.be/spots/belg/pics/image/skatepark_ruddervoorde_2.jpg",
+      "https://www.skatespots.be/spots/belg/pics/image/skatepark_ruddervoorde_2.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "hertsberge-oostkamp",
+    "slug": "skatepark-hertsberge-oostkamp",
+    "name": "Skatepark Hertsberge",
+    "success": true,
+    "sourceType": "google-maps-user-photos",
+    "sourceQuery": "skatepark hertsberge",
+    "sourceUrl": "https://www.google.com/maps/place/Skatepark/@51.1045327,3.2744292,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3450069435c35:0x178d2322e0075520!8m2!3d51.1045327!4d3.2744292!16s%2Fg%2F11wy4rc6b1?hl=nl&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D",
+    "placeName": "Skatepark Hertsberge",
+    "outputFile": "public/images/skateparks/skatepark-hertsberge-oostkamp/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-hertsberge-oostkamp/cover.jpg",
+      "public/images/skateparks/skatepark-hertsberge-oostkamp/gallery-1.jpg",
+      "public/images/skateparks/skatepark-hertsberge-oostkamp/gallery-2.jpg"
+    ],
+    "photoUrls": [
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerHIcoTAISuc5IqpDtFMG-JAa3pCQaWW3aBlb7_jFx_E61e9abd-gDFyhd1KaawMfkUE604j69q7LUc4OD2S4wgZ82c6n1czj4PMuwSvRTBQoYu-ofsRKXcyABs6A_TvGNEvLYHvm4-2pM3=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweoGmCJxp5WxZHh5uidvYC3s77Fyjc_ll0KGZhNTWvoO6x6D2k5f8Z_JwKEpmeZq2SjsavemAyLqkIaFazHR0atzaz9FwjvGK731ORoH-I0LVk4pTZa0lJ-p64nHsbdlk7fabl2RLg=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweoBqP_E9dtFO4Sav4cL40TxRt2FCCS9ExO8qlwc3dZTP9lLf6USTVp7bWjKC63ilLrxCfiq38BjcVzV6TtkX2_6jkvibbOoUnqT6zxmk2GDBazGBQ9GWZIOfrvYsvenJvsPZQ=w1600-h1200-k-no"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "den-akker-beernem",
+    "slug": "skatepark-den-akker-beernem",
+    "name": "Skatepark Den Akker",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/skatepark-den-akker-beernem/",
+    "sourceQuery": "User supplied local images for Skatepark Den Akker",
+    "outputFile": "public/images/skateparks/skatepark-den-akker-beernem/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-den-akker-beernem/cover.jpg",
+      "public/images/skateparks/skatepark-den-akker-beernem/gallery-1.jpg",
+      "public/images/skateparks/skatepark-den-akker-beernem/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/skatepark-den-akker-beernem/cover.jpg",
+      "public/images/skateparks/skatepark-den-akker-beernem/Den Akker_1.jpg",
+      "public/images/skateparks/skatepark-den-akker-beernem/Den Akker_2.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "trax-roeselare",
+    "slug": "trax-skatepark-roeselare",
+    "name": "TRAX Skatepark",
+    "success": true,
+    "sourceUrl": "https://www.traxroeselare.be/sites/traxroeselare/files/preview_skatepark1.jpg",
+    "sourceQuery": "TRAX Skatepark Roeselare skatepark",
+    "outputFile": "public/images/skateparks/trax-skatepark-roeselare/cover.jpg",
+    "attempts": []
+  },
+  {
+    "id": "kerelsplein-roeselare",
+    "slug": "skatepark-kerelsplein-roeselare",
+    "name": "Kerelsplein",
+    "success": true,
+    "sourceType": "project-gallery",
+    "sourceQuery": "Kerelsplein Roeselare skatepark Botermarkt 8800",
+    "sourceUrl": "https://www.concrete-skateparks.be/projects/roeselare-%28kerelsplein%29",
+    "outputFile": "public/images/skateparks/skatepark-kerelsplein-roeselare/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-kerelsplein-roeselare/cover.jpg",
+      "public/images/skateparks/skatepark-kerelsplein-roeselare/gallery-1.jpg",
+      "public/images/skateparks/skatepark-kerelsplein-roeselare/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "https://static.wixstatic.com/media/3ec96e_48fc4b3a71bc4fe6a2c810914f2cddb8~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85/Afbeelding%20van%20WhatsApp%20op%202024-06-19%20om%2018.26.18_dc83c127.jpg",
+      "https://static.wixstatic.com/media/3ec96e_75a471febd884d86a910afd3d74c6f98~mv2.jpg/v1/fit/w_1600,h_1200,q_90,enc_avif,quality_auto/3ec96e_75a471febd884d86a910afd3d74c6f98~mv2.jpg",
+      "https://static.wixstatic.com/media/3ec96e_9ae4c7276af642a991152d704f2c9e4e~mv2.jpg/v1/fit/w_1598,h_1200,q_90,enc_avif,quality_auto/3ec96e_9ae4c7276af642a991152d704f2c9e4e~mv2.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "izzepark-izegem",
+    "slug": "izzepark-izegem",
+    "name": "Izzepark",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/izzepark-izegem/",
+    "sourceQuery": "User supplied local images for Izzepark",
+    "outputFile": "public/images/skateparks/izzepark-izegem/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/izzepark-izegem/cover.jpg",
+      "public/images/skateparks/izzepark-izegem/gallery-1.jpg",
+      "public/images/skateparks/izzepark-izegem/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/izzepark-izegem/cover.jpg",
+      "public/images/skateparks/izzepark-izegem/image-4-661cb5a54c7c1.jpg",
+      "public/images/skateparks/izzepark-izegem/image-8-661cb5a54e6b1.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "ingelmunster",
+    "slug": "skatepark-ingelmunster",
+    "name": "Skatepark Ingelmunster",
+    "success": true,
+    "sourceType": "google-maps-user-photos",
+    "sourceQuery": "skatepark ingelmunster",
+    "sourceUrl": "https://www.google.com/maps/place/Skatepark/@50.9163171,3.2548779,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3390010a26149:0x13a6aee3e7f65b55!8m2!3d50.9163171!4d3.2548779!16s%2Fg%2F11y3p8pg6q?hl=nl&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D",
+    "placeName": "Skatepark Ingelmunster",
+    "outputFile": "public/images/skateparks/skatepark-ingelmunster/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-ingelmunster/cover.jpg",
+      "public/images/skateparks/skatepark-ingelmunster/gallery-1.jpg",
+      "public/images/skateparks/skatepark-ingelmunster/gallery-2.jpg"
+    ],
+    "photoUrls": [
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwep-vcwJQE5DnldOJ9JgUesefqxNiNuLT9STlbtRD_HT8l3x4YDqM5dpbYy6xYiCYq62FGLk23k1-r-S-MAUedFg5umXbCRuzVyykNh6YALuKHpzinftLJCaRhUlYgQWuFLO7DtG=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweq3GwWmWyFxaExyWU_6Po0SCWyrQV2Lx_-E4xBCuT3bquPuvsO-a3En9nA9YYqcW6ze9z_6SgCSU9W_oLMZEqN2XNvgtR-RQaTRzwBZIGK3m0owF3DlF3s30kcC7fbKNRDDbFM=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwepDQ7Q1JLqb1gWAa4jysVABQZijCU1NoyaDS8pEmkLTlJSd9KbaK69k53bIa0rAcBTuMU1M8nxL9LOrqdO_0pji8jjqeuSVT6Orshu7zat2Ve7s82eU7ISbr-NdgVwo4BGlE1XktEv56EOU=w1600-h1200-k-no"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "waregem",
+    "slug": "skatepark-waregem",
+    "name": "Skatepark Waregem",
+    "success": true,
+    "sourceUrl": "https://www.waregem.be/sites/waregem/files/styles/og_image/public/skate1.jpg",
+    "sourceQuery": "Skatepark Waregem Waregem skatepark",
+    "outputFile": "public/images/skateparks/skatepark-waregem/cover.jpg",
+    "attempts": []
+  },
+  {
+    "id": "watewy-tielt",
+    "slug": "skatepark-watewy-tielt",
+    "name": "Skatepark Watewy",
+    "success": true,
+    "sourceUrl": "https://m2skateparks.es/wp-content/uploads/2023/06/Tielt_skatepark_by_M2Skateparks-1.jpg",
+    "sourceQuery": "Skatepark Watewy Tielt skatepark",
+    "outputFile": "public/images/skateparks/skatepark-watewy-tielt/cover.jpg",
+    "attempts": []
+  },
+  {
+    "id": "lichtervelde",
+    "slug": "skatepark-lichtervelde",
+    "name": "Skatepark Lichtervelde",
+    "success": true,
+    "sourceUrl": "https://www.lichtervelde.be/file/imagecache/7FP0FpjnGe13Dsv0WXT9E0YU7PPSPOo01emOuWVqdU3d/content/fb537e8e-0692-4729-b1ce-2de1eb30206a/2806.jpg",
+    "sourceQuery": "manual override",
+    "outputFile": "public/images/skateparks/skatepark-lichtervelde/cover.jpg",
+    "attempts": []
+  },
+  {
+    "id": "rampaffairz-wevelgem",
+    "slug": "rampaffairz-wevelgem",
+    "name": "Rampaffairz",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/rampaffairz-wevelgem/",
+    "sourceQuery": "User supplied local images for Rampaffairz",
+    "outputFile": "public/images/skateparks/rampaffairz-wevelgem/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/rampaffairz-wevelgem/cover.jpg",
+      "public/images/skateparks/rampaffairz-wevelgem/gallery-1.jpg",
+      "public/images/skateparks/rampaffairz-wevelgem/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/rampaffairz-wevelgem/cover.jpg",
+      "public/images/skateparks/rampaffairz-wevelgem/12.jpg",
+      "public/images/skateparks/rampaffairz-wevelgem/18.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "luxaplast-marke",
+    "slug": "skatepark-luxaplast-marke-kortrijk",
+    "name": "Skatepark Luxaplast",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/",
+    "sourceQuery": "User supplied local images for Skatepark Luxaplast",
+    "outputFile": "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/cover.jpg",
+      "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/gallery-1.jpg",
+      "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/cover.jpg",
+      "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/dddd.jpg",
+      "public/images/skateparks/skatepark-luxaplast-marke-kortrijk/kortrijk-luxaplast-1.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "koning-albertpark-kortrijk",
+    "slug": "bowl-koning-albertpark-kortrijk",
+    "name": "Bowl Koning Albertpark",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/bowl-koning-albertpark-kortrijk/",
+    "sourceQuery": "User supplied local images for Bowl Koning Albertpark",
+    "outputFile": "public/images/skateparks/bowl-koning-albertpark-kortrijk/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/bowl-koning-albertpark-kortrijk/cover.jpg",
+      "public/images/skateparks/bowl-koning-albertpark-kortrijk/gallery-1.jpg",
+      "public/images/skateparks/bowl-koning-albertpark-kortrijk/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/bowl-koning-albertpark-kortrijk/cover.jpg",
+      "public/images/skateparks/bowl-koning-albertpark-kortrijk/6b2d501c875d255446db45933c1b0dbe_515e8c689940f96856571e394cac46eec41ae537.jpg",
+      "public/images/skateparks/bowl-koning-albertpark-kortrijk/kortrijk-finished-shallow-end.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "jansan-kuurne",
+    "slug": "jansan-skatepark-kuurne",
+    "name": "JanSan Skatepark",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/jansan-skatepark-kuurne/",
+    "sourceQuery": "User supplied local images for JanSan Skatepark",
+    "outputFile": "public/images/skateparks/jansan-skatepark-kuurne/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/jansan-skatepark-kuurne/cover.jpg",
+      "public/images/skateparks/jansan-skatepark-kuurne/gallery-1.jpg",
+      "public/images/skateparks/jansan-skatepark-kuurne/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/jansan-skatepark-kuurne/cover.jpg",
+      "public/images/skateparks/jansan-skatepark-kuurne/505894644_3401712563299133_7757399076656162469_n.jpg",
+      "public/images/skateparks/jansan-skatepark-kuurne/maxresdefault.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "de-kazerne-anzegem",
+    "slug": "skatepark-de-kazerne-anzegem",
+    "name": "Skatepark De Kazerne",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceQuery": "User supplied local images for Skatepark De Kazerne",
+    "sourceUrl": "public/images/skateparks/skatepark-de-kazerne-anzegem/",
+    "outputFile": "public/images/skateparks/skatepark-de-kazerne-anzegem/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-de-kazerne-anzegem/cover.jpg",
+      "public/images/skateparks/skatepark-de-kazerne-anzegem/gallery-1.jpg",
+      "public/images/skateparks/skatepark-de-kazerne-anzegem/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/skatepark-de-kazerne-anzegem/kazerne.jpg",
+      "public/images/skateparks/skatepark-de-kazerne-anzegem/kazerne2.jpg",
+      "public/images/skateparks/skatepark-de-kazerne-anzegem/kazerne3.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "de-veiling-oostende",
+    "slug": "de-veiling-oostende",
+    "name": "De Veiling",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/de-veiling-oostende/",
+    "sourceQuery": "User supplied local images for De Veiling",
+    "outputFile": "public/images/skateparks/de-veiling-oostende/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/de-veiling-oostende/cover.jpg",
+      "public/images/skateparks/de-veiling-oostende/gallery-1.jpg",
+      "public/images/skateparks/de-veiling-oostende/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/de-veiling-oostende/cover.jpg",
+      "public/images/skateparks/de-veiling-oostende/skaten-in-de-veiling.avif",
+      "public/images/skateparks/de-veiling-oostende/skatepark_oostende_veiling_2.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "velodroom-oostende",
+    "slug": "skatepark-velodroom-oostende",
+    "name": "Skatepark Velodroom",
+    "success": true,
+    "sourceType": "google-maps-user-photos",
+    "sourceQuery": "Skatepark Velodroom Oostende",
+    "sourceUrl": "https://www.google.com/maps/place/Skatepark%2FBMXPark+De+Velodroom/@51.2223304,2.9248089,17z/data=!3m1!4b1!4m6!3m5!1s0x47dcaed3f0270b55:0xdd00a0de4ac2b4e!8m2!3d51.2223304!4d2.9248089!16s%2Fg%2F11bzzpcm4_?hl=nl&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D",
+    "placeName": "Skatepark Velodroom",
+    "outputFile": "public/images/skateparks/skatepark-velodroom-oostende/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-velodroom-oostende/cover.jpg",
+      "public/images/skateparks/skatepark-velodroom-oostende/gallery-1.jpg",
+      "public/images/skateparks/skatepark-velodroom-oostende/gallery-2.jpg"
+    ],
+    "photoUrls": [
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwer1L-fS-7WPbo6FLdA6D8MjCK-pi4lCYHGqnoOlexofqlaqeqH43CbDHWGWgGd6AoVg_Wpq2H2Jr0SrZSgeutkWuee4RZ4ercxiyPIdeB7DVA7ewdJggu8P_nAltYzyPnbigPJesrypJY4k=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwepepKIKeuL7DsRcITFmN4o_xkfZn48dDew6n61PwD91qrGyXHIX1ZRELnc3jPal2vuxt6jypf4vNKugzHcjnvRo2FUSvQH_Fog4qEoz9C4x82wPW1vtiiA_KKHTMQGN3jayA32ghA=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqH4R0EvwXkIviXKMsEAIIklTl3g1B48pU5dxis_3P2NeYxael50N3mOItP3yJKTYJziopxAMw4__9zzspCcOxHQAFzNYdYku5hGa4ZpoiUY-odCoJF2ULKSyXwNnAsDoA18SDw7A=w1600-h1200-k-no"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "koksijde",
+    "slug": "skatepark-koksijde",
+    "name": "Skateplaza Oostduinkerke",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/skatepark-koksijde/",
+    "sourceQuery": "User supplied local images for Skateplaza Oostduinkerke",
+    "outputFile": "public/images/skateparks/skatepark-koksijde/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-koksijde/cover.jpg",
+      "public/images/skateparks/skatepark-koksijde/gallery-1.jpg",
+      "public/images/skateparks/skatepark-koksijde/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/skatepark-koksijde/cover.jpg",
+      "public/images/skateparks/skatepark-koksijde/koksijde1.jpg",
+      "public/images/skateparks/skatepark-koksijde/skatepark-oostduinkerke_01.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "nieuwpoort",
+    "slug": "skatepark-nieuwpoort",
+    "name": "Skatepark Nieuwpoort",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/skatepark-nieuwpoort/",
+    "sourceQuery": "User supplied local images for Skatepark Nieuwpoort",
+    "outputFile": "public/images/skateparks/skatepark-nieuwpoort/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-nieuwpoort/cover.jpg",
+      "public/images/skateparks/skatepark-nieuwpoort/gallery-1.jpg",
+      "public/images/skateparks/skatepark-nieuwpoort/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/skatepark-nieuwpoort/cover.jpg",
+      "public/images/skateparks/skatepark-nieuwpoort/a06f5c52610874560b5188d001b001ba_vagablond.16_50432_gallery_-3.jpeg",
+      "public/images/skateparks/skatepark-nieuwpoort/nieuwpoort1.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "de-pluimen-diksmuide",
+    "slug": "skatepark-de-pluimen-diksmuide",
+    "name": "Skatepark De Pluimen",
+    "success": true,
+    "sourceType": "google-maps-user-photos",
+    "sourceQuery": "Skatepark De Pluimen Diksmuide",
+    "sourceUrl": "https://www.google.com/maps/place/Skatepark+Diksmuide/data=!4m7!3m6!1s0x47dcb700233bdc65:0x7fedc60feb11768a!8m2!3d51.0248427!4d2.8738301!16s%2Fg%2F11ldjtcct6!19sChIJZdw7IwC33EcRinYR6w_G7X8?authuser=0&hl=nl&rclk=1",
+    "placeName": "Skatepark Diksmuide",
+    "outputFile": "public/images/skateparks/skatepark-de-pluimen-diksmuide/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-de-pluimen-diksmuide/cover.jpg",
+      "public/images/skateparks/skatepark-de-pluimen-diksmuide/gallery-1.jpg",
+      "public/images/skateparks/skatepark-de-pluimen-diksmuide/gallery-2.jpg"
+    ],
+    "photoUrls": [
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweq5Ywa0HJYiZET7B8jj9SsKnSPy2CnBpJNpAIXLlfOKTdMHLytu1m-rUKcy0YP-15GSdx6dNn0mH99J3q-JrRe-dboFhhRLs6a-fbbc5AuRMdMGN3aqdst79z98Vd5jHdVPaW_xg_3Ilkxl=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAwepH6b5mQi5j0KOqtXnn3cjU7M5yCfpaASQJhLXwxOJFgrrKAcxpyXtLvIniLxPBG4FVqJ9GPZ4aUsEa7W1UvsMHsOhyVBBZlgGaEUPHLxaUR1KnBQ4b0jU89krfD3IFGqV7ei40=w1600-h1200-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqmG_zPkP6JUQLEHuqK5LtacNBvGDcZp7S8UNPK7Xni3SijSfMy6925Cg6wtBhOKy7SLxnUB97mQn3tCdQg6WCo522sFILbkXSqfDM9xrr5hpaQ2W5mWGWhfaB8HrMYhWOPaGQ=w1600-h1200-k-no"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "ieper",
+    "slug": "skatepark-ieper",
+    "name": "Skatepark Ieper",
+    "success": true,
+    "sourceType": "local-user-supplied",
+    "sourceUrl": "public/images/skateparks/skatepark-ieper/",
+    "sourceQuery": "User supplied local images for Skatepark Ieper",
+    "outputFile": "public/images/skateparks/skatepark-ieper/cover.jpg",
+    "galleryFiles": [
+      "public/images/skateparks/skatepark-ieper/cover.jpg",
+      "public/images/skateparks/skatepark-ieper/gallery-1.jpg",
+      "public/images/skateparks/skatepark-ieper/gallery-2.jpg"
+    ],
+    "gallerySourceUrls": [
+      "public/images/skateparks/skatepark-ieper/cover.jpg",
+      "public/images/skateparks/skatepark-ieper/3587111.jpg",
+      "public/images/skateparks/skatepark-ieper/5185635.jpg"
+    ],
+    "attempts": []
+  },
+  {
+    "id": "poperinge",
+    "slug": "skatepark-poperinge",
+    "name": "Skatepark Poperinge",
+    "success": true,
+    "sourceUrl": "https://befulious.com/skateparks/img/poperinge/poperinge001.jpg",
+    "sourceQuery": "manual override",
+    "outputFile": "public/images/skateparks/skatepark-poperinge/cover.jpg",
+    "attempts": []
+  }
+]
