@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dailygrindblankenberge.be/sitemap.xml
+Host: dailygrindblankenberge.be

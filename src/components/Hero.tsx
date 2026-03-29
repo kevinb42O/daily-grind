@@ -140,7 +140,7 @@ export default function Hero() {
   const shopStatus = React.useMemo(() => getShopStatus(now), [now]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-surface">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-surface">
       {/* Background Carousel */}
       <motion.div 
         className="absolute inset-0 z-0 flex" 

@@ -6,6 +6,33 @@ import ProductCard from './ProductCard';
 import ProductModal from './ProductModal';
 import SortDropdown, { SortOption } from './SortDropdown';
 import FilterSidebar from './FilterSidebar';
+import Seo from './Seo';
+
+function toTitle(value?: string) {
+  if (!value) {
+    return '';
+  }
+
+  return value
+    .replace(/-/g, ' ')
+    .split(' ')
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function toRouteSlug(value?: string) {
+  if (!value) {
+    return '';
+  }
+
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
 export default function CategoryPage() {
   const { category, subcategory } = useParams<{ category: string; subcategory?: string }>();
@@ -15,6 +42,17 @@ export default function CategoryPage() {
   const [sort, setSort] = React.useState<SortOption>('default');
   const [selectedBrand, setSelectedBrand] = React.useState<string | null>(null);
   const [showMobileFilters, setShowMobileFilters] = React.useState(false);
+
+  const categoryLabel = React.useMemo(() => toTitle(category), [category]);
+  const subcategoryLabel = React.useMemo(() => toTitle(subcategory), [subcategory]);
+  const pageLabel = subcategoryLabel || categoryLabel || 'Shop';
+  const seoPath = subcategory
+    ? `/category/${toRouteSlug(category)}/${toRouteSlug(subcategory)}`
+    : `/category/${toRouteSlug(category)}`;
+  const seoTitle = `${pageLabel} | Daily Grind Blankenberge`;
+  const seoDescription = subcategoryLabel
+    ? `Shop ${subcategoryLabel} in ${categoryLabel} bij Daily Grind Blankenberge. Ontdek de nieuwste drops en core skate essentials.`
+    : `Shop ${categoryLabel} bij Daily Grind Blankenberge. Ontdek de nieuwste drops en core skate essentials.`;
 
   const priceLimit = React.useMemo(() => {
     return Math.max(...products.map(p => {
@@ -38,10 +76,9 @@ export default function CategoryPage() {
   const filteredProducts = React.useMemo(() => {
     // ... filtering logic ...
     let result = products.filter(p => {
-      const matchCategory = p.category?.toLowerCase() === category?.toLowerCase();
+      const matchCategory = toRouteSlug(p.category) === toRouteSlug(category);
       const matchSubcategory = !subcategory || 
-        p.subcategory?.toLowerCase() === subcategory?.toLowerCase() ||
-        p.subcategory?.toLowerCase().replace(/ /g, '-') === subcategory?.toLowerCase();
+        toRouteSlug(p.subcategory) === toRouteSlug(subcategory);
       
       const parsePrice = (priceStr: string) => {
         return parseFloat(priceStr.replace('€', '').replace('.', '').replace(',', '.')) || 0;
@@ -78,9 +115,9 @@ export default function CategoryPage() {
 
   const handleCategoryChange = (cat: string, sub?: string) => {
     if (sub) {
-      navigate(`/category/${cat.toLowerCase()}/${sub.toLowerCase().replace(/ /g, '-')}`);
+      navigate(`/category/${toRouteSlug(cat)}/${toRouteSlug(sub)}`);
     } else {
-      navigate(`/category/${cat.toLowerCase()}`);
+      navigate(`/category/${toRouteSlug(cat)}`);
     }
     // Also reset sub-filters when category changes significantly
     setSelectedBrand(null);
@@ -90,17 +127,25 @@ export default function CategoryPage() {
 
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-bg">
-      <div className="max-w-7xl mx-auto px-6">
+    <>
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        path={seoPath}
+        image="/OG_image.png"
+      />
+
+      <div className="pt-32 pb-24 min-h-screen bg-bg">
+        <div className="max-w-7xl mx-auto px-6">
         <Link to="/" className="inline-flex items-center gap-2 font-display font-bold uppercase text-xs tracking-widest hover:text-accent transition-colors mb-12">
           <ArrowLeft size={16} /> Terug naar Home
         </Link>
 
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4">{subcategory || category}</h1>
+            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4">{subcategoryLabel || categoryLabel}</h1>
             <p className="text-accent font-display font-bold uppercase tracking-widest text-sm">
-              Ontdek onze collectie {subcategory?.toLowerCase() || category?.toLowerCase()}
+              Ontdek onze collectie {(subcategoryLabel || categoryLabel).toLowerCase()}
             </p>
           </div>
           <div className="pb-2">
@@ -174,12 +219,13 @@ export default function CategoryPage() {
             )}
           </div>
         </div>
-      </div>
+        </div>
 
-      <ProductModal 
-        product={selectedProduct} 
-        onClose={() => setSelectedProduct(null)} 
-      />
-    </div>
+        <ProductModal 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)} 
+        />
+      </div>
+    </>
   );
 }

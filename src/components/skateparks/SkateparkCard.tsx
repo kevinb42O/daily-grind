@@ -79,6 +79,87 @@ const SkateparkCard: React.FC<SkateparkCardProps> = ({
   featuredSize = 'large',
   compactSize = 'standard',
 }) => {
+  const compactBodyRef = React.useRef<HTMLDivElement | null>(null);
+  const compactTopRef = React.useRef<HTMLDivElement | null>(null);
+  const compactBottomRef = React.useRef<HTMLDivElement | null>(null);
+  const compactTitleRef = React.useRef<HTMLHeadingElement | null>(null);
+
+  React.useLayoutEffect(() => {
+    if (variant !== 'compact') {
+      return;
+    }
+
+    const body = compactBodyRef.current;
+    const top = compactTopRef.current;
+    const bottom = compactBottomRef.current;
+    const title = compactTitleRef.current;
+
+    if (!body || !top || !bottom || !title) {
+      return;
+    }
+
+    const bounds =
+      compactSize === 'full'
+        ? { min: 28, max: 46 }
+        : compactSize === 'hero'
+          ? { min: 24, max: 40 }
+          : compactSize === 'wide'
+            ? { min: 20, max: 38 }
+            : { min: 18, max: 34 };
+
+    const fitTitle = () => {
+      const available = body.clientHeight;
+
+      if (available <= 0) {
+        return;
+      }
+
+      let low = bounds.min;
+      let high = bounds.max;
+      let best = bounds.min;
+
+      for (let i = 0; i < 9; i += 1) {
+        const mid = (low + high) / 2;
+        title.style.fontSize = `${mid}px`;
+
+        const used = top.scrollHeight + bottom.scrollHeight;
+
+        if (used <= available) {
+          best = mid;
+          low = mid;
+        } else {
+          high = mid;
+        }
+      }
+
+      title.style.fontSize = `${best.toFixed(2)}px`;
+    };
+
+    const frame = requestAnimationFrame(fitTitle);
+    const observer = new ResizeObserver(fitTitle);
+
+    observer.observe(body);
+    observer.observe(top);
+    observer.observe(bottom);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [
+    compactSize,
+    park.address,
+    park.city,
+    park.features,
+    park.isRainProof,
+    park.name,
+    park.priceType,
+    park.sessionType,
+    park.shortDescription,
+    park.surface,
+    variant,
+  ]);
+
   const shellClass =
     variant === 'featured'
       ? `group relative overflow-hidden border border-white/12 bg-[#090b0d] text-white shadow-[0_26px_80px_rgba(0,0,0,0.34)] transition-all duration-500 ${active ? 'ring-2 ring-accent' : ''}`
@@ -185,12 +266,10 @@ const SkateparkCard: React.FC<SkateparkCardProps> = ({
         ? 'px-3.5 py-1.5 text-[10px] tracking-[0.23em]'
         : 'px-3 py-1 text-[9px] tracking-[0.22em]';
     const titleClass = isFullCompact
-      ? 'text-2xl sm:text-3xl xl:text-[40px]'
+      ? 'line-clamp-2 xl:line-clamp-3'
       : isHeroCompact
-      ? 'text-2xl sm:text-3xl lg:text-4xl'
-      : isWideCompact
-        ? 'text-xl sm:text-2xl lg:text-[28px]'
-        : 'text-lg sm:text-2xl';
+      ? 'line-clamp-2'
+      : 'line-clamp-2';
     const descriptionClass = isFullCompact
       ? 'line-clamp-4 text-sm leading-7 sm:text-base xl:text-[17px]'
       : isHeroCompact
@@ -217,8 +296,8 @@ const SkateparkCard: React.FC<SkateparkCardProps> = ({
     const linkClass = isFullCompact ? 'flex h-full flex-col xl:grid xl:grid-cols-[minmax(0,1.35fr)_minmax(360px,0.95fr)]' : 'flex h-full flex-col';
     const imageShellClass = isFullCompact ? 'bg-[#090b0d] p-2 sm:p-3 xl:p-4' : 'bg-[#090b0d] p-2 sm:p-3';
     const bodyClass = isFullCompact
-      ? `flex flex-col gap-3 bg-[#090b0d] text-white sm:gap-4 xl:justify-center ${bodyPaddingClass}`
-      : `flex flex-col gap-3 bg-[#090b0d] text-white sm:gap-4 ${bodyPaddingClass}`;
+      ? `flex h-full flex-col gap-3 bg-[#090b0d] text-white sm:gap-4 xl:justify-center ${bodyPaddingClass}`
+      : `flex h-full flex-col gap-3 bg-[#090b0d] text-white sm:gap-4 ${bodyPaddingClass}`;
 
     return (
       <motion.article
@@ -241,31 +320,38 @@ const SkateparkCard: React.FC<SkateparkCardProps> = ({
             </div>
           </div>
 
-          <div className={bodyClass}>
-            <div className="flex flex-wrap gap-2">
-              <span className={`bg-accent font-display font-bold uppercase text-white shadow-[0_10px_24px_rgba(196,43,43,0.28)] ${badgeClass}`}>
-                {park.city}
-              </span>
-              <span className={`border border-accent/35 bg-accent/10 font-display font-bold uppercase text-white/90 ${badgeClass}`}>
-                {park.sessionType}
-              </span>
-            </div>
-            <h3 className={`font-black leading-[0.92] text-white ${titleClass}`}>{park.name}</h3>
-            <SkateparkStatus park={park} inverted size={metaSize} />
-            <p className={`leading-relaxed text-white/78 ${descriptionClass}`}>{park.shortDescription}</p>
-            <div className="space-y-3 border-t border-white/12 pt-3 sm:pt-4">
-              <p className={`leading-relaxed ${addressClass}`}>{park.address}</p>
-              <SkateparkPills park={park} inverted size={metaSize} />
-            </div>
-            <div className="flex items-center justify-between border-t border-white/12 pt-3 sm:pt-4">
-              <div className={`flex items-center gap-2 font-bold uppercase text-white/58 ${isHeroCompact ? 'text-[11px] tracking-[0.22em]' : 'text-[10px] tracking-[0.2em]'}`}>
-                {park.sessionType === 'indoor' ? <Warehouse size={13} className="text-accent" /> : null}
-                <span>{park.priceType}</span>
+          <div ref={compactBodyRef} className={bodyClass}>
+            <div ref={compactTopRef} className="space-y-3 sm:space-y-4">
+              <div className="flex flex-wrap gap-2">
+                <span className={`bg-accent font-display font-bold uppercase text-white shadow-[0_10px_24px_rgba(196,43,43,0.28)] ${badgeClass}`}>
+                  {park.city}
+                </span>
+                <span className={`border border-accent/35 bg-accent/10 font-display font-bold uppercase text-white/90 ${badgeClass}`}>
+                  {park.sessionType}
+                </span>
               </div>
-              <span className={`inline-flex items-center gap-2 font-display font-black uppercase text-accent transition-colors group-hover:text-white ${ctaClass}`}>
-                Open spot
-                <ArrowUpRight size={14} />
-              </span>
+              <h3 ref={compactTitleRef} className={`font-black leading-[0.92] text-white transition-[font-size] duration-300 ${titleClass}`}>
+                {park.name}
+              </h3>
+              <SkateparkStatus park={park} inverted size={metaSize} />
+              <p className={`leading-relaxed text-white/78 ${descriptionClass}`}>{park.shortDescription}</p>
+            </div>
+
+            <div ref={compactBottomRef} className="mt-auto space-y-3 pt-3 sm:pt-4">
+              <div className="space-y-3 border-t border-white/12 pt-3 sm:pt-4">
+                <p className={`leading-relaxed ${addressClass}`}>{park.address}</p>
+                <SkateparkPills park={park} inverted size={metaSize} />
+              </div>
+              <div className="flex items-center justify-between border-t border-white/12 pt-3 sm:pt-4">
+                <div className={`flex items-center gap-2 font-bold uppercase text-white/58 ${isHeroCompact ? 'text-[11px] tracking-[0.22em]' : 'text-[10px] tracking-[0.2em]'}`}>
+                  {park.sessionType === 'indoor' ? <Warehouse size={13} className="text-accent" /> : null}
+                  <span>{park.priceType}</span>
+                </div>
+                <span className={`inline-flex items-center gap-2 font-display font-black uppercase text-accent transition-colors group-hover:text-white ${ctaClass}`}>
+                  Open spot
+                  <ArrowUpRight size={14} />
+                </span>
+              </div>
             </div>
           </div>
         </Link>

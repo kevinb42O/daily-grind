@@ -7,9 +7,11 @@ type SeoProps = {
   path: string;
   image?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noIndex?: boolean;
+  robotsContent?: string;
 };
 
-const DEFAULT_IMAGE = '/images/site/logo_daily_hero2.png';
+const DEFAULT_IMAGE = '/OG_image.png';
 
 function upsertMeta(selector: string, attributes: Record<string, string>) {
   let element = document.head.querySelector(selector) as HTMLMetaElement | null;
@@ -37,10 +39,19 @@ function upsertLink(selector: string, attributes: Record<string, string>) {
   });
 }
 
-export default function Seo({ title, description, path, image = DEFAULT_IMAGE, jsonLd }: SeoProps) {
+export default function Seo({
+  title,
+  description,
+  path,
+  image = DEFAULT_IMAGE,
+  jsonLd,
+  noIndex = false,
+  robotsContent,
+}: SeoProps) {
   React.useEffect(() => {
     const canonicalUrl = getCanonicalUrl(path);
     const absoluteImage = image.startsWith('http') ? image : getCanonicalUrl(image);
+    const robots = robotsContent ?? (noIndex ? 'noindex, nofollow' : 'index, follow');
 
     document.documentElement.lang = 'nl';
     document.title = title;
@@ -55,6 +66,7 @@ export default function Seo({ title, description, path, image = DEFAULT_IMAGE, j
     upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: title });
     upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description });
     upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: absoluteImage });
+    upsertMeta('meta[name="robots"]', { name: 'robots', content: robots });
     upsertLink('link[rel="canonical"]', { rel: 'canonical', href: canonicalUrl });
 
     const existingScript = document.getElementById('seo-json-ld');
@@ -73,7 +85,7 @@ export default function Seo({ title, description, path, image = DEFAULT_IMAGE, j
     return () => {
       document.getElementById('seo-json-ld')?.remove();
     };
-  }, [description, image, jsonLd, path, title]);
+  }, [description, image, jsonLd, noIndex, path, robotsContent, title]);
 
   return null;
 }

@@ -2,11 +2,20 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Seo from './Seo';
 
 export default function AboutPage() {
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-bg">
-      <div className="max-w-7xl mx-auto px-6">
+    <>
+      <Seo
+        title="Over Daily Grind Blankenberge | Core Skateshop sinds 2015"
+        description="Ontdek het verhaal achter Daily Grind Blankenberge. Een core skateshop sinds 2015, gebouwd op authentic skate culture, community en lokale scene support."
+        path="/about"
+        image="/OG_image.png"
+      />
+
+      <div className="pt-32 pb-24 min-h-screen bg-bg">
+        <div className="max-w-7xl mx-auto px-6">
         <Link to="/" className="inline-flex items-center gap-2 font-display font-bold uppercase text-xs tracking-widest hover:text-accent transition-colors mb-12">
           <ArrowLeft size={16} /> Terug naar Home
         </Link>
@@ -87,7 +96,8 @@ export default function AboutPage() {
             </a>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -31,6 +31,7 @@ export interface Skatepark {
   features: string[];
   heroImage: string;
   gallery: string[];
+  accessInfo?: string;
   statusNote?: string;
   openingHoursNote?: string;
 }
@@ -84,13 +85,23 @@ export const skateparkRegions: SkateparkRegion[] = [
 ];
 
 function parkImages(slug: string, regionKey: SkateparkRegionKey) {
+  const customGalleries: Record<string, string[]> = {
+    'skatepark-rotonde-wenduine': [
+      '/images/skateparks/skatepark-rotonde-wenduine/cover.jpg',
+      '/images/skateparks/skatepark-rotonde-wenduine/unnamed.webp',
+      '/images/skateparks/skatepark-rotonde-wenduine/656845513_10243177560594329_1460639361897921752_n.jpg',
+    ],
+  };
+
+  const defaultGallery = [
+    `/images/skateparks/${slug}/cover.jpg`,
+    `/images/skateparks/${slug}/gallery-1.jpg`,
+    `/images/skateparks/${slug}/gallery-2.jpg`,
+  ];
+
   return {
     heroImage: `/images/skateparks/${slug}/cover.jpg`,
-    gallery: [
-      `/images/skateparks/${slug}/cover.jpg`,
-      `/images/skateparks/${slug}/gallery-1.jpg`,
-      `/images/skateparks/${slug}/gallery-2.jpg`,
-    ],
+    gallery: customGalleries[slug] ?? defaultGallery,
   };
 }
 
@@ -113,7 +124,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Binnenweg 4, 8000 Brugge',
-    coordinates: { lat: 51.233, lng: 3.2205 },
+    coordinates: { lat: 51.2315, lng: 3.2188 },
     shortDescription: 'Het absolute hoofdpark van Brugge met een volwassen mix van street en transition.',
     longDescription:
       'Het Entrepot is voor veel skaters de referentie in Brugge. Het park is ruim opgezet, volledig in beton en voelt aan als een spot waar je zowel technische street lines als langere transition runs kunt leggen. Dankzij de combinatie van open ruimte, stevige flow en klassieke obstakels is dit een plek waar beginners hun eerste lijnen kunnen bouwen en gevorderde skaters genoeg snelheid en variatie vinden om lang te blijven hangen.',
@@ -133,7 +144,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Dries 2, 8310 Assebroek',
-    coordinates: { lat: 51.1965, lng: 3.2501 },
+    coordinates: { lat: 51.1963, lng: 3.2505 },
     shortDescription: 'Compact outdoor park naast het cultuurcentrum, ideaal voor snelle sessies.',
     longDescription:
       'Daverlo is een compacte, no-nonsense spot in Assebroek. Het park ligt vlak bij het cultuurcentrum en is daardoor laagdrempelig en makkelijk bereikbaar voor een korte namiddagsessie. De schaal is kleiner dan Het Entrepot, maar net dat maakt het interessant voor skaters die snel willen opwarmen, tricks willen herhalen of gewoon een rustigere setting zoeken zonder de drukte van een groot destination park.',
@@ -153,7 +164,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Grasdreef 5, 8200 Sint-Michiels',
-    coordinates: { lat: 51.1852, lng: 3.2045 },
+    coordinates: { lat: 51.1853, lng: 3.2045 },
     shortDescription: 'Lokaal wijkparkje voor een snelle sessie dicht bij Brugge.',
     longDescription:
       'Beastwood is een typische local spot: klein, toegankelijk en handig als je in de buurt woont of weinig tijd hebt. Je komt hier niet voor gigantische flow, maar voor herhaling, techniek en een korte dosis boardfeel. Voor jongere skaters en locals is dit het soort park dat perfect werkt om dagelijks te skaten zonder dat je meteen een halve roadtrip hoeft te plannen.',
@@ -173,7 +184,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'J. Guilinipad, 8370 Blankenberge',
-    coordinates: { lat: 51.315781, lng: 3.144518 },
+    coordinates: { lat: 51.3115, lng: 3.1364 },
     shortDescription: 'Strak betonpark van 900 m² met ledges, quarters en kickers naast de Sportdoze.',
     longDescription:
       'Het skatepark van Blankenberge is een moderne skateplaza waar je onmiddellijk voelt dat het gebouwd is om echt te rijden. De ledges, quarters en kickers liggen in een logische flow, waardoor je zowel snelle lijnen als losse tricks kunt skaten. Voor Daily Grind is dit vanzelfsprekend ook een hometown spot: ideaal voor een sessie voor of na de shop, en sterk genoeg om bezoekers van buiten de kust te overtuigen om hier een stop te maken.',
@@ -192,8 +203,8 @@ export const skateparks: Skatepark[] = [
     postalCode: '8420',
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
-    address: 'Zeedijk-Wenduine, 8420 Wenduine',
-    coordinates: { lat: 51.2976457, lng: 3.0830791 },
+    address: 'Graaf Jansdijk 18, 8420 De Haan',
+    coordinates: { lat: 51.300916, lng: 3.075966 },
     shortDescription: 'Nieuwe outdoor skateplaza in gepolierd beton aan de Rotonde in Wenduine.',
     longDescription:
       'Skatepark Rotonde ligt pal aan de zeedijk van Wenduine en is een frisse kustspot in gepolierd beton. De opstelling draait rond een miniramp met daarrond verschillende street-elementen, waardoor je hier zowel losse tricks als korte lijnen kunt rijden. Door de ligging aan de Rotonde is het een heel toegankelijke seaside spot: makkelijk mee te pikken tijdens een sessiedag aan de kust en ideaal voor skaters die een compacte, moderne betonspot zoeken tussen Blankenberge en De Haan.',
@@ -213,7 +224,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Stadionlaan 48, 8210 Zedelgem',
-    coordinates: { lat: 51.1441, lng: 3.1382 },
+    coordinates: { lat: 51.1475, lng: 3.1348 },
     shortDescription: 'Solide betonnen park aan het sportcentrum van Zedelgem.',
     longDescription:
       'Groene Meersen is een stevig en overzichtelijk park dat perfect past bij een sportsite-setting. Je krijgt een praktische betonopbouw met genoeg elementen om een volledige sessie te rijden zonder dat het te chaotisch wordt. Het is een betrouwbare spot voor skaters uit Zedelgem en omgeving die een propere ondergrond en eenvoudige, functionele obstakels verkiezen boven spektakel.',
@@ -253,7 +264,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Vlamingveld 40, 8490 Jabbeke',
-    coordinates: { lat: 51.1813, lng: 3.0905 },
+    coordinates: { lat: 51.1805, lng: 3.0886 },
     shortDescription: 'Functionele spot aan het sportcentrum, handig voor locals en dagbezoekers.',
     longDescription:
       'Het park van Jabbeke ligt op een logische plek naast het sportcentrum en voelt aan als een praktische everyday spot. Het is niet de meest spectaculaire bestemming van de provincie, maar wel een park waar je makkelijk binnenwandelt, warm rijdt en efficiënt sessies kunt doen. Juist die directe bruikbaarheid maakt het interessant voor skaters uit de buurt en voor iedereen die meerdere spots op één dag combineert.',
@@ -273,7 +284,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Albrecht Rodenbachstraat, 8020 Oostkamp',
-    coordinates: { lat: 51.1558, lng: 3.2341 },
+    coordinates: { lat: 51.1561, lng: 3.2355 },
     shortDescription: 'Vernieuwd park met betonnen toestellen en een klassieke street-opzet.',
     longDescription:
       'De Valkaart is een park met een duidelijke focus op bruikbare street-elementen. De vernieuwde betonnen toestellen maken het een nette en betrouwbare stop voor skaters die hun sessie graag rond basics en herhaling bouwen. Geen overbodige franjes, wel een park dat uitnodigt om echt te skaten en waar je snel verschillende obstakels in één lijn kunt samenbrengen.',
@@ -293,7 +304,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Ridefort, 8020 Ruddervoorde',
-    coordinates: { lat: 51.0944, lng: 3.2083 },
+    coordinates: { lat: 51.0945, lng: 3.2081 },
     shortDescription: 'Door locals mee vormgegeven park met quarter, funbox, rail en ollie box.',
     longDescription:
       'Ridefort is typisch zo’n park dat beter wordt doordat het samen met de scene werd bedacht. De opbouw met quarterpipe, funbox, rail en ollie box maakt het meteen duidelijk waar de focus ligt: technische street moves, ritme en veel herhaling. Het is een compacte maar doordachte spot waar je voelt dat lokale input mee heeft bepaald hoe de lijnen in de praktijk werken.',
@@ -333,7 +344,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'brugge-noordwest',
     regionLabel: 'Brugge & Noord-West-Vlaanderen',
     address: 'Sportstraat 1, 8730 Beernem',
-    coordinates: { lat: 51.1674, lng: 3.3328 },
+    coordinates: { lat: 51.1678, lng: 3.332 },
     shortDescription: 'Nieuw ontmoetingspark dat samen met lokale skaters werd ontworpen.',
     longDescription:
       'Den Akker is niet enkel een sportplek, maar ook een sociaal ontmoetingspunt voor de lokale scene. Omdat het park mee vorm kreeg met input van skaters, voelt de setup natuurlijker aan dan bij veel standaard gemeentelijke aanleg. Je merkt dat het gemaakt is om gebruikt te worden: een plek waar beginners zich welkom voelen en waar meer ervaren riders toch genoeg variatie vinden om creatief te blijven.',
@@ -353,7 +364,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'midden-west-vlaanderen',
     regionLabel: 'Midden-West-Vlaanderen',
     address: 'Traxweg 1, 8800 Roeselare',
-    coordinates: { lat: 50.9472, lng: 3.1288 },
+    coordinates: { lat: 50.9502, lng: 3.1317 },
     shortDescription: 'Gigantisch flowy betonpark en een van de absolute paradepaardjes van de provincie.',
     longDescription:
       'TRAX is zonder discussie een destination skatepark voor West-Vlaanderen. Het park is groot, open en vloeiend opgebouwd, waardoor je veel snelheid kunt meenemen en lange lines kunt skaten. Superlange rails, trappen en een volwassen concrete lay-out zorgen ervoor dat zowel street skaters als riders die graag flow opbouwen hier veel te vinden hebben. Als je maar één park in Midden-West-Vlaanderen wilt plannen, dan staat TRAX bijna automatisch bovenaan de lijst.',
@@ -373,7 +384,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'midden-west-vlaanderen',
     regionLabel: 'Midden-West-Vlaanderen',
     address: 'Kerelsplein, 8800 Roeselare',
-    coordinates: { lat: 50.9361, lng: 3.113 },
+    coordinates: { lat: 50.9419, lng: 3.1118 },
     shortDescription: 'Chiller openluchtparkje in de stad voor een kortere, rustige sessie.',
     longDescription:
       'Kerelsplein is het tegenovergestelde van een gigantische skatebestemming, en precies daardoor heeft het zijn charme. Dit is een stadsspot waar je snel even langsgaat, basiswerk doet of gewoon met de locals hangt zonder grote verwachtingen. De compactheid maakt het overzichtelijk en bruikbaar voor wie niet per se een heel sportcomplex nodig heeft om een goeie sessie te hebben.',
@@ -413,7 +424,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'midden-west-vlaanderen',
     regionLabel: 'Midden-West-Vlaanderen',
     address: 'Naast de Brigandbrug, 8770 Ingelmunster',
-    coordinates: { lat: 50.9152, lng: 3.2552 },
+    coordinates: { lat: 50.9168, lng: 3.2558 },
     shortDescription: 'Recent aangelegd park met brede skatezone, zitplekken en ontmoetingsruimte.',
     longDescription:
       'Het park van Ingelmunster is recenter aangelegd en voelt daardoor fris, open en sociaal in gebruik. De brede skatezone en de aanwezigheid van picknickbanken en een ontmoetingsplek geven het geheel een community-karakter: ideaal om niet alleen te rijden, maar ook te chillen en langer te blijven hangen. Voor crews of jongere skaters die een toegankelijke setting zoeken, zit deze spot heel goed.',
@@ -494,13 +505,14 @@ export const skateparks: Skatepark[] = [
     regionKey: 'zuid-west-vlaanderen',
     regionLabel: 'Zuid-West-Vlaanderen',
     address: 'Vlamingstraat 6, 8560 Wevelgem',
-    coordinates: { lat: 50.8202, lng: 3.2114 },
+    coordinates: { lat: 50.8166, lng: 3.1979 },
     shortDescription: 'Legendarisch houten indoor park en een vaste waarde in de streek.',
     longDescription:
       'Rampaffairz heeft een naam die veel verder gaat dan Wevelgem. Dit indoor park leeft op reputatie, sfeer en een houten opbouw die een heel eigen ride-feel geeft tegenover beton. Het is het soort plek waar regen geen excuus meer is en waar je voor een echte indoor session komt: gecontroleerd, intens en met een scene-gevoel dat je niet zomaar in elk gemeentelijk park terugvindt.',
     sessionType: 'indoor',
     surface: 'Hout',
     priceType: 'Betaald',
+    accessInfo: '€11',
     isRainProof: true,
     skillLevel: 'Intermediate tot advanced',
     features: ['Indoor', 'Wood park', 'Transition', 'Street'],
@@ -534,8 +546,8 @@ export const skateparks: Skatepark[] = [
     postalCode: '8500',
     regionKey: 'zuid-west-vlaanderen',
     regionLabel: 'Zuid-West-Vlaanderen',
-    address: 'Koning Albertpark, 8500 Kortrijk',
-    coordinates: { lat: 50.8344, lng: 3.2677 },
+    address: 'IJzerkaai, 8500 Kortrijk',
+    coordinates: { lat: 50.833978, lng: 3.270111 },
     shortDescription: 'Historische bowl: de allereerste skatebowl van België.',
     longDescription:
       'Koning Albertpark is geen gewone spot, maar een stuk Belgische skategeschiedenis. De bowl is historisch belangrijk en voelt daardoor bijna verplicht materiaal voor wie de scene ernstig neemt. Verwacht hier geen uitgebreide allround setup, wel een plek met karakter, heritage en een heel specifieke focus. Voor bowl- en transitionliefhebbers is dit een spot die je minstens één keer gereden moet hebben.',
@@ -562,6 +574,7 @@ export const skateparks: Skatepark[] = [
     sessionType: 'indoor',
     surface: 'Hout',
     priceType: 'Lidkaart / beurt',
+    accessInfo: 'Zonder lidkaart: €4\nMet lidkaart: €2\nLidkaart: €10',
     isRainProof: true,
     skillLevel: 'Beginner tot advanced',
     features: ['Indoor', 'Private park', 'Street', 'Transition'],
@@ -583,6 +596,7 @@ export const skateparks: Skatepark[] = [
     sessionType: 'indoor',
     surface: 'Hout',
     priceType: 'Betaald',
+    accessInfo: '€8',
     isRainProof: true,
     skillLevel: 'Beginner tot advanced',
     features: ['Indoor', 'Volunteer-run', 'Street', 'Transition'],
@@ -600,10 +614,11 @@ export const skateparks: Skatepark[] = [
     coordinates: { lat: 51.2145, lng: 2.925 },
     shortDescription: 'Modern indoor park in Oostende, gebouwd door Nine Yards.',
     longDescription:
-      'De Veiling is een moderne indoor spot met een hedendaagse afwerking en een reputatie die verder reikt dan Oostende zelf. Omdat het park door Nine Yards werd gebouwd, weet je ongeveer wat je mag verwachten: een doordachte flow, propere lijnen en een park dat echt voor skategebruik ontworpen is. Aan de kust is dit een gouden kaart voor dagen waarop wind en regen buiten de dienst uitmaken.',
+      'De Veiling is een moderne indoor spot met een moderne afwerking en een reputatie die verder reikt dan Oostende zelf. Omdat het park door Nine Yards werd gebouwd, weet je wat je mag verwachten: een doordachte flow, vette lines en een park dat echt voor skaters ontworpen is. Aan de kust is dit een droomspot op regenachtige dagen.',
     sessionType: 'indoor',
     surface: 'Hout',
     priceType: 'Betaald',
+    accessInfo: 'Lidkaart: €6/jaar',
     isRainProof: true,
     skillLevel: 'Beginner tot advanced',
     features: ['Indoor', 'Nine Yards build', 'Street', 'Transition'],
@@ -617,7 +632,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'kust-westhoek',
     regionLabel: 'De Kust & De Westhoek',
     address: 'Torhoutsesteenweg, 8400 Oostende',
-    coordinates: { lat: 51.1926, lng: 2.9007 },
+    coordinates: { lat: 51.2127, lng: 2.9054 },
     shortDescription: 'De outdoor klassieker van Oostende en een vaste kustwaarde.',
     longDescription:
       'Velodroom is zo’n spot die je bijna automatisch noemt wanneer het over Oostende gaat. Deze outdoor klassieker heeft een vaste plek in de kustscene en is voor veel skaters een bekende tussenstop of thuishaven. Verwacht een park dat leeft van continu gebruik, lokale aanwezigheid en het feit dat het al jaren deel uitmaakt van de skatemap van de Belgische kust.',
@@ -637,7 +652,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'kust-westhoek',
     regionLabel: 'De Kust & De Westhoek',
     address: 'Houtsaegerlaan, 8670 Koksijde',
-    coordinates: { lat: 51.1062, lng: 2.652 },
+    coordinates: { lat: 51.1118, lng: 2.6653 },
     shortDescription: 'Degelijk outdoor betonpark in Oostduinkerke, bij het sportpark van Koksijde.',
     longDescription:
       'Skateplaza Oostduinkerke is een degelijk outdoor betonpark dat vooral scoort op betrouwbaarheid. De ligging bij het sportpark maakt de spot makkelijk te combineren met andere activiteiten, maar voor skaters is vooral de propere concrete ride belangrijk. Dit is het type park waar je vlot een sessie opzet, zonder veel ruis, en waar de kwaliteit van de ondergrond het verschil maakt.',
@@ -677,7 +692,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'kust-westhoek',
     regionLabel: 'De Kust & De Westhoek',
     address: 'Sportlaan, 8600 Diksmuide',
-    coordinates: { lat: 51.0263, lng: 2.869 },
+    coordinates: { lat: 51.0315, lng: 2.8682 },
     shortDescription: 'Openlucht skatespot aan het sportcomplex van Diksmuide.',
     longDescription:
       'De Pluimen ligt aan het sportcomplex van Diksmuide en werkt als een functionele openluchtspot voor de streek. Het is een park dat je niet noodzakelijk omwille van hype bezoekt, maar wel omdat het een handige en bruikbare stop is wanneer je richting Westhoek rijdt. Net dat praktische karakter maakt het interessant in een complete West-Vlaamse skategids.',
@@ -697,7 +712,7 @@ export const skateparks: Skatepark[] = [
     regionKey: 'kust-westhoek',
     regionLabel: 'De Kust & De Westhoek',
     address: 'Leopold III-laan 16, 8900 Ieper',
-    coordinates: { lat: 50.8464, lng: 2.8941 },
+    coordinates: { lat: 50.8456, lng: 2.8941 },
     shortDescription: 'Betonnen park naast het Jeugdontmoetingscentrum van Ieper.',
     longDescription:
       'Het park in Ieper combineert een centrale ligging met een concrete setup die duidelijk gemaakt is om echt te gebruiken. De aansluiting bij het jeugdontmoetingscentrum geeft de spot ook sociaal gewicht: dit is niet enkel een park, maar een plek die in de lokale jeugdwerking en scene verankerd zit. Voor Westhoek-skaters is dit een van de logische vaste waarden.',

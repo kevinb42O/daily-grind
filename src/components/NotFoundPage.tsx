@@ -1,11 +1,22 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, Skull } from 'lucide-react';
+import Seo from './Seo';
 
 const NotFoundPage: React.FC = () => {
+  const location = useLocation();
+
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 relative overflow-hidden griptape-overlay">
+    <>
+      <Seo
+        title="404 | Pagina Niet Gevonden | Daily Grind Blankenberge"
+        description="Deze pagina bestaat niet of is verplaatst. Ga terug naar de homepage van Daily Grind Blankenberge."
+        path={location.pathname || '/404'}
+        noIndex
+      />
+
+      <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 relative overflow-hidden griptape-overlay">
       {/* Background Decorative Element */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }}
@@ -101,7 +112,8 @@ const NotFoundPage: React.FC = () => {
       >
           <div className="w-48 h-2 bg-accent brutal-border" />
       </motion.div>
-    </div>
+      </div>
+    </>
   );
 };
 

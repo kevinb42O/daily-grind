@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react
 import BackToTop from './components/BackToTop';
 import LegalModal from './components/LegalModal';
 import NotFoundPage from './components/NotFoundPage';
+import Seo from './components/Seo';
 
 const CategoryPage = React.lazy(() => import('./components/CategoryPage'));
 const AboutPage = React.lazy(() => import('./components/AboutPage'));
@@ -19,14 +20,34 @@ const SkateparkDirectoryPage = React.lazy(() => import('./components/skateparks/
 const SkateparkDetailPage = React.lazy(() => import('./components/skateparks/SkateparkDetailPage'));
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
   React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const id = hash.replace('#', '');
+      const scrollToAnchor = () => {
+        const target = document.getElementById(id);
+        if (!target) {
+          return;
+        }
+
+        const headerOffset = 96;
+        const y = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      };
+
+      window.requestAnimationFrame(scrollToAnchor);
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [hash, pathname]);
+
   return null;
 }
 
 function HomePage() {
+  const CLIP_DURATION_MS = 30000;
   const teamSectionRef = React.useRef<HTMLElement | null>(null);
   const { scrollYProgress: teamScrollProgress } = useScroll({
     target: teamSectionRef,
@@ -47,14 +68,6 @@ function HomePage() {
   const [isVideoLoading, setIsVideoLoading] = React.useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
   const hideOverlayTimeoutRef = React.useRef<number | null>(null);
-
-  React.useEffect(() => {
-    const timer = window.setInterval(() => {
-      setVideoIndex((prev) => (prev + 1) % skateVideos.length);
-    }, 30000);
-
-    return () => window.clearInterval(timer);
-  }, [skateVideos.length]);
 
   React.useEffect(() => {
     setIsVideoLoading(true);
@@ -88,6 +101,14 @@ function HomePage() {
     setVideoIndex((prev) => (prev + 1) % skateVideos.length);
   }, [skateVideos.length]);
 
+  React.useEffect(() => {
+    const autoRotateInterval = window.setInterval(() => {
+      setVideoIndex((prev) => (prev + 1) % skateVideos.length);
+    }, CLIP_DURATION_MS);
+
+    return () => window.clearInterval(autoRotateInterval);
+  }, [CLIP_DURATION_MS, skateVideos.length]);
+
   const handleVideoLoaded = React.useCallback(() => {
     if (hideOverlayTimeoutRef.current) {
       window.clearTimeout(hideOverlayTimeoutRef.current);
@@ -105,6 +126,12 @@ function HomePage() {
 
   return (
     <>
+      <Seo
+        title="Daily Grind Blankenberge | Core Skateshop & West-Vlaanderen Skatepark Guide"
+        description="Daily Grind Blankenberge is een core skateshop aan de Belgische kust met skateboards, streetwear, sneakers en een complete skatepark guide voor West-Vlaanderen."
+        path="/"
+        image="/OG_image.png"
+      />
       <Hero />
       
       {/* Marquee Section */}
@@ -114,7 +141,7 @@ function HomePage() {
         </div>
       </div>
 
-      <section className="py-20 md:py-24 bg-surface border-y border-fg/10">
+      <section id="tv" className="py-20 md:py-24 bg-surface border-y border-fg/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-end mb-8">
             <div className="lg:col-span-3">
@@ -131,9 +158,6 @@ function HomePage() {
                 Watch on YouTube
                 <ExternalLink size={14} />
               </a>
-              <p className="text-[10px] md:text-xs text-fg/65 font-display uppercase tracking-widest">
-                Auto-switch every 30s
-              </p>
             </div>
           </div>
 
@@ -154,7 +178,7 @@ function HomePage() {
                 <motion.iframe
                   key={activeVideo.id}
                   className="w-full h-full"
-                  src={`https://www.youtube-nocookie.com/embed/${activeVideo.id}?start=${activeVideo.startSeconds}&autoplay=1&mute=1&rel=0&playsinline=1`}
+                  src={`https://www.youtube.com/embed/${activeVideo.id}?start=${activeVideo.startSeconds}&autoplay=1&mute=1&rel=0&playsinline=1`}
                   title="Daily Grind Blankenberge skate video"
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -255,7 +279,7 @@ function HomePage() {
                 Clip {videoIndex + 1} / {skateVideos.length}: {activeVideo.label}
               </p>
               <p className="font-display font-bold uppercase tracking-widest text-[10px] md:text-xs text-accent">
-                Carousel mode active
+                Auto switch every 30s
               </p>
             </div>
 
@@ -265,7 +289,7 @@ function HomePage() {
                 className="h-full bg-accent"
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
-                transition={{ duration: 30, ease: 'linear' }}
+                transition={{ duration: CLIP_DURATION_MS / 1000, ease: 'linear' }}
               />
             </div>
 
@@ -389,7 +413,7 @@ function HomePage() {
               <p className="text-accent font-display font-bold uppercase tracking-widest text-xs mb-4">Skatepark Guide</p>
               <h2 className="text-5xl md:text-7xl font-black leading-[0.95] text-white mb-6">Alle Spots In West-Vlaanderen. Op Kaart.</h2>
               <p className="text-lg text-white/78 leading-relaxed max-w-2xl">
-                We hebben een complete skatepark-hub gebouwd met adressen, coördinaten, filters, indoor/outdoor info en een detailpagina per spot. Handig voor locals, roadtrips en iedereen die de scene van West-Vlaanderen echt wil rijden.
+                Jouw ultieme gids voor elke skatespot in West-Vlaanderen. Of je nu een local bent die een nieuwe spot zoekt, of een roadtrip langs de kust plant: vind direct de perfecte spot voor je volgende sessie. Minder zoeken, meer riden.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link

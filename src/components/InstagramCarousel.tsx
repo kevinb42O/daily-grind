@@ -57,14 +57,22 @@ export default function InstagramCarousel() {
   const dotCount = Math.min(posts.length, 8);
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
+    <section id="instagram" className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
         <div>
           <p className="text-accent font-display font-bold uppercase tracking-widest text-xs mb-3">Instagram</p>
           <h2 className="text-4xl md:text-6xl font-black leading-[0.95] text-fg">Inside The Feed</h2>
           <p className="mt-4 text-fg/70 max-w-xl">
-            Real posts from the crew in an Instagram-style showcase. Sessions, shop life and new drops from
-            <span className="font-bold text-fg"> @dailygrindskateshop</span>.
+            Blijf op de hoogte van onze nieuwste collecties, exclusieve drops en updates uit de winkel. Volg{' '}
+            <a
+              href={instagramProfile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-fg underline decoration-fg/50 underline-offset-4 hover:text-accent hover:decoration-accent transition-colors"
+            >
+              @dailygrindskateshop
+            </a>
+            .
           </p>
         </div>
 

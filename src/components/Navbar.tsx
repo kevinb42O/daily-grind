@@ -1,15 +1,18 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Instagram, Facebook, Youtube, ChevronDown } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, Youtube } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [expandedCategory, setExpandedCategory] = React.useState<string | null>(null);
+  const closeMenu = React.useCallback(() => setIsOpen(false), []);
 
-  const toggleCategory = (category: string) => {
-    setExpandedCategory(expandedCategory === category ? null : category);
-  };
+  const navLinks = [
+    { label: 'Home', to: '/' },
+    { label: 'Contact', to: '/#location' },
+    { label: 'Skateparks', to: '/skateparks-west-vlaanderen' },
+    { label: 'About', to: '/about' },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-[1100] bg-[#111111] border-b border-white/5">
@@ -23,73 +26,22 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 items-center font-display text-[10px] font-bold uppercase tracking-[0.2em] text-white">
-          <div className="relative group">
-            <Link to="/category/skateboards" className="hover:text-accent transition-colors block py-2">
-              Skateboards
-              <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-            <div className="absolute top-full left-0 mt-0 w-48 bg-[#111111] border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-              <Link to="/category/skateboards/decks" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Decks</Link>
-              <Link to="/category/skateboards/bolts" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Bolts</Link>
-              <Link to="/category/skateboards/trucks" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Trucks</Link>
-              <Link to="/category/skateboards/wheels" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Wheels</Link>
-              <Link to="/category/skateboards/bearings" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Bearings</Link>
-              <Link to="/category/skateboards/griptape" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Griptape</Link>
-              <Link to="/category/skateboards/completes" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Completes</Link>
+        <div className="hidden md:flex gap-6 items-center font-display text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+          {navLinks.map((item) => (
+            <div key={item.label} className="relative group">
+              <Link to={item.to} className="hover:text-accent transition-colors block py-2">
+                {item.label}
+                <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
+              </Link>
             </div>
-          </div>
-          
-          <div className="relative group">
-            <Link to="/category/kledij" className="hover:text-accent transition-colors block py-2">
-              Kledij
-              <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-            <div className="absolute top-full left-0 mt-0 w-48 bg-[#111111] border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-              <Link to="/category/kledij/longsleeve-t-shirts" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Longsleeve T-shirts</Link>
-              <Link to="/category/kledij/hoodies" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Hoodies</Link>
-              <Link to="/category/kledij/crewneck" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Crewneck</Link>
-              <Link to="/category/kledij/broeken" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Broeken</Link>
-              <Link to="/category/kledij/t-shirts" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">T-shirts</Link>
-            </div>
-          </div>
-          
-          <div className="relative group">
-            <Link to="/category/schoenen" className="hover:text-accent transition-colors block py-2">
-              Schoenen
-              <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-            <div className="absolute top-full left-0 mt-0 w-48 bg-[#111111] border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-              <Link to="/category/schoenen/skate-sneakers" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Skate Sneakers</Link>
-            </div>
-          </div>
-          
-          <div className="relative group">
-            <Link to="/category/accessoires" className="hover:text-accent transition-colors block py-2">
-              Accessoires
-              <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-            <div className="absolute top-full left-0 mt-0 w-48 bg-[#111111] border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-              <Link to="/category/accessoires/sokken" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Sokken</Link>
-              <Link to="/category/accessoires/boxershorts" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Boxershorts</Link>
-              <Link to="/category/accessoires/caps-beanies" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Caps & Beanies</Link>
-              <Link to="/category/accessoires/belts" className="block px-4 py-3 hover:bg-white/5 hover:text-accent transition-colors">Belts</Link>
-            </div>
-          </div>
+          ))}
 
-          <div className="relative group">
-            <Link to="/skateparks-west-vlaanderen" className="hover:text-accent transition-colors block py-2">
-              Skateparks
-              <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-          </div>
-          
-          <div className="relative group">
-            <Link to="/about" className="hover:text-accent transition-colors block py-2">
-              About
-              <span className="absolute bottom-1 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-          </div>
+          <Link
+            to="/#products"
+            className="ml-2 border border-accent/70 bg-accent px-4 py-2 text-[9px] text-white hover:bg-transparent hover:text-accent transition-colors"
+          >
+            Shop
+          </Link>
         </div>
 
         {/* Mobile Toggle & Socials (Desktop) */}
@@ -126,7 +78,11 @@ export default function Navbar() {
               <Youtube size={16} />
             </motion.a>
           </div>
-          <button className="text-white md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="text-white md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Sluit menu' : 'Open menu'}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -139,78 +95,21 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-full left-0 w-full bg-[#111111] border-t border-white/5 p-8 flex flex-col gap-6 font-display text-2xl font-bold uppercase text-white"
         >
-          {/* Mobile Categories Accordion */}
-          <div className="flex flex-col gap-4">
-            {/* Skateboards */}
-            <div>
-              <button 
-                onClick={() => toggleCategory('skateboards')}
-                className="w-full text-left hover:text-accent transition-colors flex justify-between items-center"
-              >
-                <span>Skateboards</span>
-                <ChevronDown size={24} className={`transition-transform duration-300 ${expandedCategory === 'skateboards' ? 'rotate-180' : ''}`} />
-              </button>
-              {expandedCategory === 'skateboards' && (
-                <div className="flex flex-col gap-4 pl-4 pt-4 text-lg font-normal">
-                  <Link to="/category/skateboards" onClick={() => setIsOpen(false)} className="hover:text-accent font-bold">Alle Skateboards</Link>
-                  <Link to="/category/skateboards/decks" onClick={() => setIsOpen(false)} className="hover:text-accent">Decks</Link>
-                  <Link to="/category/skateboards/bolts" onClick={() => setIsOpen(false)} className="hover:text-accent">Bolts</Link>
-                  <Link to="/category/skateboards/trucks" onClick={() => setIsOpen(false)} className="hover:text-accent">Trucks</Link>
-                  <Link to="/category/skateboards/wheels" onClick={() => setIsOpen(false)} className="hover:text-accent">Wheels</Link>
-                  <Link to="/category/skateboards/bearings" onClick={() => setIsOpen(false)} className="hover:text-accent">Bearings</Link>
-                  <Link to="/category/skateboards/griptape" onClick={() => setIsOpen(false)} className="hover:text-accent">Griptape</Link>
-                  <Link to="/category/skateboards/completes" onClick={() => setIsOpen(false)} className="hover:text-accent">Completes</Link>
-                </div>
-              )}
-            </div>
+          <div className="flex flex-col gap-3 text-2xl">
+            {navLinks.map((item) => (
+              <Link key={item.label} to={item.to} onClick={closeMenu} className="hover:text-accent transition-colors">
+                {item.label}
+              </Link>
+            ))}
 
-            {/* Kledij */}
-            <div>
-              <button 
-                onClick={() => toggleCategory('kledij')}
-                className="w-full text-left hover:text-accent transition-colors flex justify-between items-center"
-              >
-                <span>Kledij</span>
-                <ChevronDown size={24} className={`transition-transform duration-300 ${expandedCategory === 'kledij' ? 'rotate-180' : ''}`} />
-              </button>
-              {expandedCategory === 'kledij' && (
-                <div className="flex flex-col gap-4 pl-4 pt-4 text-lg font-normal">
-                  <Link to="/category/kledij" onClick={() => setIsOpen(false)} className="hover:text-accent font-bold">Alle Kledij</Link>
-                  <Link to="/category/kledij/longsleeve-t-shirts" onClick={() => setIsOpen(false)} className="hover:text-accent">Longsleeve T-shirts</Link>
-                  <Link to="/category/kledij/hoodies" onClick={() => setIsOpen(false)} className="hover:text-accent">Hoodies</Link>
-                  <Link to="/category/kledij/crewneck" onClick={() => setIsOpen(false)} className="hover:text-accent">Crewneck</Link>
-                  <Link to="/category/kledij/broeken" onClick={() => setIsOpen(false)} className="hover:text-accent">Broeken</Link>
-                  <Link to="/category/kledij/t-shirts" onClick={() => setIsOpen(false)} className="hover:text-accent">T-shirts</Link>
-                </div>
-              )}
-            </div>
-
-            {/* Schoenen */}
-            <Link to="/category/schoenen" onClick={() => setIsOpen(false)} className="hover:text-accent transition-colors">Schoenen</Link>
-
-            {/* Accessoires */}
-            <div>
-              <button 
-                onClick={() => toggleCategory('accessoires')}
-                className="w-full text-left hover:text-accent transition-colors flex justify-between items-center"
-              >
-                <span>Accessoires</span>
-                <ChevronDown size={24} className={`transition-transform duration-300 ${expandedCategory === 'accessoires' ? 'rotate-180' : ''}`} />
-              </button>
-              {expandedCategory === 'accessoires' && (
-                <div className="flex flex-col gap-4 pl-4 pt-4 text-lg font-normal">
-                  <Link to="/category/accessoires" onClick={() => setIsOpen(false)} className="hover:text-accent font-bold">Alle Accessoires</Link>
-                  <Link to="/category/accessoires/sokken" onClick={() => setIsOpen(false)} className="hover:text-accent">Sokken</Link>
-                  <Link to="/category/accessoires/boxershorts" onClick={() => setIsOpen(false)} className="hover:text-accent">Boxershorts</Link>
-                  <Link to="/category/accessoires/caps-beanies" onClick={() => setIsOpen(false)} className="hover:text-accent">Caps & Beanies</Link>
-                  <Link to="/category/accessoires/belts" onClick={() => setIsOpen(false)} className="hover:text-accent">Belts</Link>
-                </div>
-              )}
-            </div>
+            <Link
+              to="/#products"
+              onClick={closeMenu}
+              className="mt-2 inline-flex w-full items-center justify-center border border-accent bg-accent px-5 py-4 text-lg text-white hover:bg-transparent hover:text-accent transition-colors"
+            >
+              Shop
+            </Link>
           </div>
-
-          <Link to="/skateparks-west-vlaanderen" onClick={() => setIsOpen(false)} className="hover:text-accent transition-colors">Skateparks</Link>
-          <Link to="/about" onClick={() => setIsOpen(false)} className="hover:text-accent transition-colors">About</Link>
           
           <div className="flex gap-6 pt-4 border-t border-white/10">
             <motion.a 

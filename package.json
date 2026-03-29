@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
+    "build": "npm run seo:generate && vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
+    "seo:generate": "tsx scripts/generate-seo-assets.ts",
     "scrape:instagram": "node scripts/scrape-instagram.js"
   },
   "dependencies": {

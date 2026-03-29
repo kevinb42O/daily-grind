@@ -8,46 +8,10 @@ import SkateparkCard from './SkateparkCard';
 import SkateparkMap from './SkateparkMap';
 
 function getBentoLayout(index: number) {
-  const pattern = index % 6;
-
-  if (pattern === 0) {
-    return {
-      wrapperClass: 'sm:col-span-2 xl:col-span-3',
-      compactSize: 'hero' as const,
-    };
-  }
-
-  if (pattern === 1) {
-    return {
-      wrapperClass: 'sm:col-span-2 xl:col-span-3',
-      compactSize: 'wide' as const,
-    };
-  }
-
-  if (pattern === 2) {
-    return {
-      wrapperClass: 'sm:col-span-2 xl:col-span-6',
-      compactSize: 'full' as const,
-    };
-  }
-
-  if (pattern === 3) {
-    return {
-      wrapperClass: 'sm:col-span-2 xl:col-span-3',
-      compactSize: 'wide' as const,
-    };
-  }
-
-  if (pattern === 4) {
-    return {
-      wrapperClass: 'sm:col-span-2 xl:col-span-3',
-      compactSize: 'standard' as const,
-    };
-  }
-
+  void index;
   return {
-    wrapperClass: 'sm:col-span-2 xl:col-span-6',
-    compactSize: 'full' as const,
+    wrapperClass: 'h-full sm:col-span-2 xl:col-span-3',
+    compactSize: 'wide' as const,
   };
 }
 
@@ -166,7 +130,7 @@ export default function SkateparkDirectoryPage() {
         title="Alle Skateparks in West-Vlaanderen | Daily Grind Blankenberge"
         description="Ontdek alle skateparks in West-Vlaanderen op één kaart. Met adressen, coördinaten en een detailpagina per spot."
         path="/skateparks-west-vlaanderen"
-        image="/images/site/skateparkguide.jpg"
+        image="/OG_image.png"
         jsonLd={listJsonLd}
       />
 
@@ -196,8 +160,11 @@ export default function SkateparkDirectoryPage() {
                 Skateparks West-Vlaanderen
               </p>
               <h1 className="text-5xl font-black leading-[0.92] text-white md:text-7xl xl:text-8xl">
-                Alle spots op de kaart.
+                Vind jouw volgende skate spot in West-Vlaanderen.
               </h1>
+              <p className="mt-6 max-w-3xl text-sm font-medium leading-relaxed text-white/82 md:text-base">
+                Van bowls en street plazas tot compacte locals: verken alle skateparks per gemeente met kaart, beelden en praktische info per locatie.
+              </p>
             </div>
 
             <div className="mt-14 flex w-full justify-center md:mt-18">
