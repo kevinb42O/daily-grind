@@ -12,7 +12,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#111111] border-b border-white/5">
+    <nav className="fixed top-0 left-0 w-full z-[1100] bg-[#111111] border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-4">
           <img 
