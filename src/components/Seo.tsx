@@ -12,6 +12,8 @@ type SeoProps = {
 };
 
 const DEFAULT_IMAGE = '/OG_image.png';
+const DEFAULT_IMAGE_WIDTH = '1536';
+const DEFAULT_IMAGE_HEIGHT = '1024';
 
 function upsertMeta(selector: string, attributes: Record<string, string>) {
   let element = document.head.querySelector(selector) as HTMLMetaElement | null;
@@ -62,6 +64,10 @@ export default function Seo({
     upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' });
     upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonicalUrl });
     upsertMeta('meta[property="og:image"]', { property: 'og:image', content: absoluteImage });
+    upsertMeta('meta[property="og:image:secure_url"]', { property: 'og:image:secure_url', content: absoluteImage });
+    upsertMeta('meta[property="og:image:type"]', { property: 'og:image:type', content: 'image/png' });
+    upsertMeta('meta[property="og:image:width"]', { property: 'og:image:width', content: DEFAULT_IMAGE_WIDTH });
+    upsertMeta('meta[property="og:image:height"]', { property: 'og:image:height', content: DEFAULT_IMAGE_HEIGHT });
     upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
     upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: title });
     upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description });
