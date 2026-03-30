@@ -9,6 +9,7 @@ import BackToTop from './components/BackToTop';
 import LegalModal from './components/LegalModal';
 import NotFoundPage from './components/NotFoundPage';
 import Seo from './components/Seo';
+import { Analytics } from '@vercel/analytics/react';
 
 const CategoryPage = React.lazy(() => import('./components/CategoryPage'));
 const AboutPage = React.lazy(() => import('./components/AboutPage'));
@@ -675,6 +676,7 @@ export default function App() {
           type={legalModal.type} 
           onClose={closeLegalModal} 
         />
+        <Analytics />
       </div>
     </Router>
   );
