@@ -9,7 +9,7 @@ export type SkateparkSort =
   | 'distance-user';
 
 export function getSiteUrl() {
-  return 'https://daily-grind-gray.vercel.app';
+  return 'https://www.daily-grind.be';
 }
 
 export function getCanonicalUrl(path: string) {
