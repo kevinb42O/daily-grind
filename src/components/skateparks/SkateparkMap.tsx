@@ -2,6 +2,7 @@ import React from 'react';
 import L from 'leaflet';
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import { Link } from 'react-router-dom';
+import 'leaflet/dist/leaflet.css';
 import type { Skatepark } from '../../data/skateparks';
 import { createMapsLink } from '../../lib/skateparks';
 

@@ -1,10 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Brands from './components/Brands';
-import Contact from './components/Contact';
-import ProductGrid from './components/ProductGrid';
-import InstagramCarousel from './components/InstagramCarousel';
 import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'motion/react';
 import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, ArrowUpRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -18,6 +14,10 @@ const CategoryPage = React.lazy(() => import('./components/CategoryPage'));
 const AboutPage = React.lazy(() => import('./components/AboutPage'));
 const SkateparkDirectoryPage = React.lazy(() => import('./components/skateparks/SkateparkDirectoryPage'));
 const SkateparkDetailPage = React.lazy(() => import('./components/skateparks/SkateparkDetailPage'));
+const ProductGrid = React.lazy(() => import('./components/ProductGrid'));
+const InstagramCarousel = React.lazy(() => import('./components/InstagramCarousel'));
+const Brands = React.lazy(() => import('./components/Brands'));
+const Contact = React.lazy(() => import('./components/Contact'));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -67,7 +67,37 @@ function HomePage() {
   const [videoIndex, setVideoIndex] = React.useState(0);
   const [isVideoLoading, setIsVideoLoading] = React.useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+  const videoSectionRef = React.useRef<HTMLDivElement | null>(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = React.useState(false);
   const hideOverlayTimeoutRef = React.useRef<number | null>(null);
+
+  React.useEffect(() => {
+    if (shouldLoadVideo) {
+      return;
+    }
+
+    const target = videoSectionRef.current;
+    if (!target) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (!entry?.isIntersecting) {
+          return;
+        }
+
+        setShouldLoadVideo(true);
+        observer.disconnect();
+      },
+      { rootMargin: '300px 0px' }
+    );
+
+    observer.observe(target);
+
+    return () => observer.disconnect();
+  }, [shouldLoadVideo]);
 
   React.useEffect(() => {
     setIsVideoLoading(true);
@@ -174,11 +204,15 @@ function HomePage() {
             </motion.button>
 
             <div className="relative overflow-hidden brutal-border bg-black shadow-[0_25px_60px_rgba(0,0,0,0.20)]">
-              <div className="aspect-video">
+              <div ref={videoSectionRef} className="aspect-video">
                 <motion.iframe
                   key={activeVideo.id}
                   className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${activeVideo.id}?start=${activeVideo.startSeconds}&autoplay=1&mute=1&rel=0&playsinline=1`}
+                  src={
+                    shouldLoadVideo
+                      ? `https://www.youtube.com/embed/${activeVideo.id}?start=${activeVideo.startSeconds}&autoplay=1&mute=1&rel=0&playsinline=1`
+                      : undefined
+                  }
                   title="Daily Grind Blankenberge skate video"
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -340,7 +374,9 @@ function HomePage() {
         </div>
       </section>
 
-      <ProductGrid />
+      <React.Suspense fallback={null}>
+        <ProductGrid />
+      </React.Suspense>
 
       <section
         id="team"
@@ -373,6 +409,8 @@ function HomePage() {
             <img 
               src="/images/site/cta.jpg" 
               alt="Shop Interior" 
+              loading="lazy"
+              decoding="async"
               className="w-full aspect-[4/5] object-cover brutal-border"
               referrerPolicy="no-referrer"
             />
@@ -404,6 +442,8 @@ function HomePage() {
             <img
               src="/images/site/skateparkguide.jpg"
               alt="West-Vlaanderen skatepark guide"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
               referrerPolicy="no-referrer"
             />
@@ -435,11 +475,17 @@ function HomePage() {
         </div>
       </section>
 
-      <InstagramCarousel />
+      <React.Suspense fallback={null}>
+        <InstagramCarousel />
+      </React.Suspense>
 
-      <Brands />
+      <React.Suspense fallback={null}>
+        <Brands />
+      </React.Suspense>
       
-      <Contact />
+      <React.Suspense fallback={null}>
+        <Contact />
+      </React.Suspense>
     </>
   );
 }
@@ -509,6 +555,8 @@ export default function App() {
                   <img 
                     src="/images/site/logo_daily_hero2.png" 
                     alt="Daily Grind Logo" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-64 md:w-80 h-auto"
                     referrerPolicy="no-referrer"
                   />

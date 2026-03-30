@@ -105,14 +105,17 @@ const banners = [
   {
     id: 1,
     image: "/images/hero/hero-banner-1.jpg",
+    srcSet: "/images/hero/hero-banner-1-960.jpg 960w, /images/hero/hero-banner-1-1600.jpg 1600w, /images/hero/hero-banner-1.jpg 3828w",
   },
   {
     id: 2,
     image: "/images/hero/hero-banner-2.jpg",
+    srcSet: "/images/hero/hero-banner-2-960.jpg 960w, /images/hero/hero-banner-2-1600.jpg 1600w, /images/hero/hero-banner-2.jpg 2704w",
   },
   {
     id: 3,
     image: "/images/hero/hero-banner-3.jpg",
+    srcSet: "/images/hero/hero-banner-3-960.jpg 960w, /images/hero/hero-banner-3-1600.jpg 1600w, /images/hero/hero-banner-3.jpg 3990w",
   }
 ];
 
@@ -151,7 +154,12 @@ export default function Hero() {
           <div key={banner.id} className="min-w-full h-full relative overflow-hidden">
             <motion.img 
               src={banner.image} 
+              srcSet={banner.srcSet}
+              sizes="100vw"
               alt="Daily Grind Hero" 
+              loading={banner.id === 1 ? 'eager' : 'lazy'}
+              fetchPriority={banner.id === 1 ? 'high' : 'auto'}
+              decoding="async"
               className="w-full h-[120%] object-cover absolute top-0 left-0"
               style={{ 
                 top: '-10%',
