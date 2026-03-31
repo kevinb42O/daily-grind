@@ -96,6 +96,39 @@
   background: rgba(9, 12, 15, 0.96);
 }
 
+.skatepark-popup .leaflet-popup-content-wrapper {
+  border-radius: 18px !important;
+  background: rgba(9, 12, 15, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.34) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.skatepark-popup .leaflet-popup-content {
+  margin: 14px 16px !important;
+}
+
+.skatepark-popup .leaflet-popup-tip {
+  box-shadow: none !important;
+  background: rgba(9, 12, 15, 0.96) !important;
+}
+
+.skatepark-popup .leaflet-popup-close-button {
+  color: rgba(255, 255, 255, 0.66) !important;
+}
+
+.skatepark-popup .leaflet-popup-close-button:hover {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.skatepark-popup .popup-link-detail {
+  color: #c42b2b !important;
+}
+
+.skatepark-popup .popup-link-route {
+  color: rgba(255, 255, 255, 0.58) !important;
+}
+
 .leaflet-control-attribution {
   background: rgba(0, 0, 0, 0.62) !important;
   color: rgba(255, 255, 255, 0.46) !important;

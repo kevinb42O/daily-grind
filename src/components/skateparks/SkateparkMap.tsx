@@ -95,7 +95,7 @@ export default function SkateparkMap({
                 click: () => onSelectPark?.(park),
               }}
             >
-              <Popup>
+              <Popup className="skatepark-popup">
                 <div className="min-w-[220px] space-y-3">
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C42B2B]">{park.city}</p>
@@ -109,10 +109,10 @@ export default function SkateparkMap({
                     {park.isRainProof && <span className="border border-white/10 bg-white/6 px-2 py-1 text-white/70">Rainproof</span>}
                   </div>
                   <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em]">
-                    <Link to={`/skateparks-west-vlaanderen/${park.slug}`} className="text-[#C42B2B]">
+                    <Link to={`/skateparks-west-vlaanderen/${park.slug}`} className="popup-link-detail">
                       Open detail
                     </Link>
-                    <a href={createMapsLink(park)} target="_blank" rel="noopener noreferrer" className="text-white/58">
+                    <a href={createMapsLink(park)} target="_blank" rel="noopener noreferrer" className="popup-link-route">
                       Route
                     </a>
                   </div>
