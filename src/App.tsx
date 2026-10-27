@@ -650,7 +650,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="pt-12 border-t border-bg/10 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="pt-12 border-t border-bg/10 flex flex-col lg:flex-row justify-between items-center gap-8">
               <div className="text-[10px] uppercase tracking-[0.3em] text-bg/60">
                 © 2026 Daily Grind Blankenberge. All Rights Reserved.
               </div>
@@ -659,13 +659,20 @@ export default function App() {
                 href="https://www.webaanzee.be" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 group no-underline"
+                aria-label="Website gemaakt door Webaanzee (opent in een nieuw tabblad)"
+                className="group inline-flex min-h-11 items-center gap-3 rounded-sm py-2 no-underline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-bg"
               >
-                <span className="text-[7.5px] uppercase tracking-[0.05em] text-bg/30 pt-0.5">designed by</span>
-                <span className="text-[11px] font-display font-bold tracking-tight text-bg/80 group-hover:text-bg transition-colors">
-                  Web<span className="text-[#FFB800]">aan</span>Zee.be
-                </span>
-                <ExternalLink size={9} className="text-bg/30 group-hover:text-bg/50 transition-colors" />
+                <span className="text-[10px] font-medium uppercase tracking-widest text-bg/65 transition-colors group-hover:text-bg group-focus-visible:text-bg">Gemaakt door</span>
+                <img
+                  src="/images/site/webaanzee-wordmark.webp"
+                  alt="Webaanzee"
+                  width={1823}
+                  height={220}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-32 sm:w-36"
+                />
+                <ArrowUpRight size={14} aria-hidden="true" className="text-bg/65 transition-colors group-hover:text-bg group-focus-visible:text-bg" />
               </a>
             </div>
           </div>
