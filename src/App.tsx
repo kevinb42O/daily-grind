@@ -659,10 +659,10 @@ export default function App() {
                 href="https://www.webaanzee.be" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                aria-label="Website gemaakt door Webaanzee (opent in een nieuw tabblad)"
+                aria-label="Design & development: Webaanzee (opent in een nieuw tabblad)"
                 className="group inline-flex min-h-11 items-center gap-3 rounded-sm py-2 no-underline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-bg"
               >
-                <span className="text-[10px] font-medium uppercase tracking-widest text-bg/65 transition-colors group-hover:text-bg group-focus-visible:text-bg">Gemaakt door</span>
+                <span className="text-[10px] font-medium uppercase tracking-widest text-bg/65 transition-colors group-hover:text-bg group-focus-visible:text-bg">Design &amp; development</span>
                 <img
                   src="/images/site/webaanzee-wordmark.webp"
                   alt="Webaanzee"
